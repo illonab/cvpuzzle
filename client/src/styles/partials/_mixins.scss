@@ -1,0 +1,96 @@
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin wrapper {
+    height: 100%;
+    margin-left: 1.6rem;
+    margin-right: 1.6rem;
+
+    @include tablet {
+        margin: 0 3.6rem;
+    }
+
+    @include desktop {
+        margin: 0 auto;
+        width: 128rem;
+    }
+}
+
+@mixin pageHeader {
+    font-size: 3.6rem;
+    line-height: 3.8rem;
+    font-weight: 700;
+
+    @include tablet {
+        font-size: 4.8rem;
+        line-height: 5.7rem;
+    }
+}
+
+@mixin sectionHeader {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    font-weight: 600;
+    padding-bottom: 1.6rem;
+}
+
+@mixin subcontent {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    font-weight: 500;
+
+    @include tablet {
+        font-size: 2.4rem;
+        line-height: 3.1rem;
+    }
+}
+
+@mixin subheader {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+}
+
+@mixin text {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+
+    @include tablet {
+        font-size: 1.6rem;
+        //line-height: 3rem;
+    }
+}
+
+@mixin text-label {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+    font-family: inherit;
+    color: #AFAFAF;
+    font-weight: 700;
+}
+
+@mixin section-spacing {
+    padding-top: 5rem;
+    padding-bottom: 1.6rem;
+
+    @include tablet {
+        padding-top: 6rem;
+        padding-bottom: 2.4rem;
+    }
+}
+
+@mixin btn-icon($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: 8px 8px;
+}

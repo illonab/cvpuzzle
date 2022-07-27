@@ -1,0 +1,47 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.header {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    &__wrapper {
+        @include mixins.wrapper;
+        padding: 2.4rem 0;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__link {
+        display: flex;
+    }
+
+    &__logo {
+        font-size: 2rem;
+        padding-right: 0.5rem;
+        color: #2d405f;
+    }
+
+    &__icon {
+        height: 2.5rem;
+    }
+}
+
+.navigation {
+    &__link {
+        @include mixins.text;
+        //color: rgb(51, 65, 85);
+        color: #2d405f;
+        font-weight: 600;
+        padding: 1rem;
+        transition: all 250ms linear;
+
+        &:hover {
+            color: #3b4ef8;
+        }
+
+
+    }
+}
