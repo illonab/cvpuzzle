@@ -1,0 +1,72 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.banner {
+    @include mixins.wrapper;
+    @include mixins.section-spacing;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.tablet {
+        flex-direction: row
+    }
+
+    &__title {
+        @include mixins.pageHeader;
+        text-align: center;
+        color: #2d405f;
+        margin-bottom: 1.6rem;
+
+        @include mixins.tablet {
+            text-align: left
+        }
+    }
+
+    &__text {
+        @include mixins.subcontent;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: #2d405f;
+
+        @include mixins.tablet {
+            text-align: left
+        }
+    }
+
+    &__image {
+        margin-top: 8rem;
+        animation: up-down 2s ease-in-out infinite alternate-reverse both;
+
+        @include mixins.tablet {
+            width: 50rem;
+            height: 40rem;
+            margin-top: 0;
+        }
+    }
+
+    &__btn {
+        display: inline-block;
+        font-size: 1.6rem;
+    }
+}
+
+.why-use {
+    @include mixins.wrapper;
+    @include mixins.section-spacing;
+    display: flex;
+
+    &__left {}
+
+    &__right {}
+
+    &__content {}
+
+    &__title {
+        @include mixins.subheader;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        @include mixins.text;
+        color: #848484;
+    }
+}
