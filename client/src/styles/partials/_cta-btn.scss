@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.cta-btn {
+    background-color: rgb(240, 220, 40);
+    color: #fff;
+    font-weight: 500;
+    padding: 1rem 3.2rem;
+    border-radius: 5px;
+    border: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    @include mixins.text;
+    line-height: 2rem;
+    transition: all 200ms linear;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #fff;
+    background: #3b4ef8;
+
+    &:hover {
+        padding: 1.2rem 3.4rem;
+        background: #0a22f6;
+    }
+
+    @include mixins.tablet {
+        min-width: 23rem;
+
+    }
+}
