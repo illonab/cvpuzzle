@@ -1,26 +1,58 @@
 import "./Header.scss";
 import logoIcon from "../../assets/icon/puzzle-logo.svg";
+import { Link } from "react-router-dom";
+import userIcon from "../../assets/icon/user-icon.svg";
 
-function Header() {
+function Header({ user }) {
+  const logout = () => {
+    window.open("http://localhost:8080/auth/logout", "_self");
+  };
   return (
     <header className="header">
       <div className="header__wrapper">
         <div className="header__container">
-          <a href="" className="header__link">
+          <Link className="header__link" to={"/"}>
             <p className="header__logo">CvPuzzle</p>
             <img src={logoIcon} alt="Brainflix logo" className="header__icon" />
-          </a>
-          <nav className="header_navigation navigation">
-            <a href="#" className="navigation__link">
-              CV Templates
-            </a>
-            <a href="#" className="navigation__link">
-              My CVs
-            </a>
-            <a href="#" className="navigation__link">
-              Log in
-            </a>
-          </nav>
+          </Link>
+          {user ? (
+            <nav className="header_navigation navigation">
+              <Link className="navigation__link" to={"/cvtemplates"}>
+                CV Templates
+              </Link>
+              <Link className="navigation__link" to={"/mycv"}>
+                My CVs
+              </Link>
+              <span className="navigation__link navigation__link--user">
+                <img
+                  className="navigation__user-icon"
+                  src={userIcon}
+                  alt="user account icon"
+                />
+                <div className="navigation__dropdown">
+                  <span className="navigation__link navigation__link--username">
+                    Hi {user.displayName} !
+                  </span>
+                  <a
+                    className="navigation__link navigation__link--logout"
+                    onClick={logout}
+                    href="#"
+                  >
+                    Logout
+                  </a>
+                </div>
+              </span>
+            </nav>
+          ) : (
+            <nav className="header_navigation navigation">
+              <Link className="navigation__link" to={"/cvtemplates"}>
+                CV Templates
+              </Link>
+              <Link className="navigation__link" to={"/login"}>
+                Log in
+              </Link>
+            </nav>
+          )}
         </div>
       </div>
     </header>

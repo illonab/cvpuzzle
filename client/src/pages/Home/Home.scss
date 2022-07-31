@@ -34,7 +34,6 @@
 
     &__image {
         margin-top: 8rem;
-        animation: up-down 2s ease-in-out infinite alternate-reverse both;
 
         @include mixins.tablet {
             width: 50rem;
@@ -63,6 +62,7 @@
     &__title {
         @include mixins.subheader;
         margin-bottom: 1rem;
+        color: #2d405f;
     }
 
     &__text {
