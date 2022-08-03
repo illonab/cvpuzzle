@@ -1,0 +1,38 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.templates {
+
+    @include mixins.section-spacing;
+
+    &__wrapper {
+        @include mixins.wrapper;
+    }
+
+    &__title {
+        @include mixins.pageHeader;
+    }
+
+    &__subheader {
+        @include mixins.text;
+    }
+
+    &__templates {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__template {
+        background-color: rgb(241, 245, 249);
+        display: block;
+        padding: 3.2rem;
+
+        &+& {
+            margin-left: 2rem;
+        }
+    }
+
+    &__preview-img {
+        width: 100%;
+        height: 100%;
+    }
+}

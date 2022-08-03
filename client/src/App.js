@@ -9,6 +9,7 @@ import { useInsertionEffect, useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import CVteamplates from "./pages/CVtemplates/CVtemplates";
+import CVeditor from "./components/CVeditor/CVeditor";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -53,6 +54,7 @@ function App() {
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/mycv" exact element={<MyCV />} />
         <Route path="/cvtemplates" exact element={<CVteamplates />} />
+        <Route path="/mycv/editor" exact element={<CVeditor user={user} />} />
       </Routes>
     </div>
   );

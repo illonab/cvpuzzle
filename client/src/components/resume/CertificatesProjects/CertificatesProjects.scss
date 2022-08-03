@@ -1,0 +1,26 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.certificates {
+    padding: 0 3rem;
+    margin: 2rem 0;
+
+    &__name {
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 2.2rem;
+    }
+
+    &__link {
+        font-size: 1.2rem;
+        line-height: 1.8rem
+    }
+
+    &__company {
+        font-size: 1.2rem;
+        line-height: 1.8rem
+    }
+
+    &__date {
+        @include mixins.resume-date;
+    }
+}

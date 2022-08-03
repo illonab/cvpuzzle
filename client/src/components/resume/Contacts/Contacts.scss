@@ -1,0 +1,34 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.contacts {
+    padding: 1rem 3rem;
+
+    &__left {
+        flex: 1;
+    }
+
+    &__icon-container {
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    &__contacts--right {
+        flex: 1;
+    }
+
+    &__link {
+        display: block;
+
+        &--linkedin {}
+
+        &--github {}
+
+        &--stackoverflow {}
+    }
+}
