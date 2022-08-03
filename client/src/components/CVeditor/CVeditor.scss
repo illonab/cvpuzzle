@@ -1,0 +1,41 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.editor {
+    background-color: rgb(241, 245, 249);
+    @include mixins.section-spacing;
+
+    &__wrapper {
+        @include mixins.wrapper;
+    }
+
+    &__template {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__document {
+        width: 80rem;
+        height: 90rem;
+        background-color: #fff;
+        margin-top: 3rem;
+    }
+}
+
+.resume {
+    padding: 4rem 0;
+
+    &__header {
+        padding-bottom: 2rem
+    }
+
+    &__contacts {
+        background-color: rgb(241, 241, 241);
+        display: flex;
+        @include mixins.text;
+    }
+}
+
+.cv-subtitle {
+    @include mixins.resume-experience-title;
+}
