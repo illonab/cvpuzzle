@@ -6,8 +6,50 @@ import Skills from "../resume/Skills/Skills";
 import Experience from "../resume/Experience/Experience";
 import Education from "../resume/Education/Education";
 import CertificatesProjects from "../resume/CertificatesProjects/CertificatesProjects";
+import { useState } from "react";
 
 function CVeditor({ user }) {
+  const [cv, setCV] = useState({
+    name: "Your name",
+    title: "Position",
+    summary: "Summary",
+    contacts: {
+      location: "Location",
+      email: "email",
+      phone: "phone",
+      socials: [
+        "https://www.linkedin.com/in/ilona-beshchuk/",
+        "https://github.com/illonab",
+      ],
+    },
+    skills: ["JavaScript", "React"],
+  });
+
+  const onHeaderChange = (value) => {
+    setCV({ ...cv, name: value.name, title: value.title });
+  };
+
+  const onSummaryChange = (value) => {
+    setCV({ ...cv, summary: value.summary });
+  };
+
+  const onContactsChange = (value) => {
+    setCV({
+      ...cv,
+      contacts: {
+        ...cv.contacts,
+        location: value.location,
+        email: value.email,
+        phone: value.phone,
+        socials: value.socials,
+      },
+    });
+  };
+
+  const onSkillsChange = (value) => {
+    setCV({ ...cv, skills: value.skills });
+  };
+
   if (!user) {
     return null;
   }
@@ -17,10 +59,10 @@ function CVeditor({ user }) {
         <div className="editor__template">
           <h1 className="eritor__title">My resume</h1>
           <div className="editor__document resume">
-            <ResumeHeader user={user} />
-            <Contacts user={user} />
-            <Summary />
-            <Skills />
+            <ResumeHeader cv={cv} onChange={onHeaderChange} />
+            <Contacts user={user} cv={cv} onChange={onContactsChange} />
+            <Summary cv={cv} onChange={onSummaryChange} />
+            <Skills skills={cv.skills} onChange={onSkillsChange} />
             <Experience />
             <Education />
             <CertificatesProjects />

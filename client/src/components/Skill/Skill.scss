@@ -1,0 +1,27 @@
+.skill {
+    position: relative;
+
+    &__text {
+        min-width: 6rem;
+        display: block;
+        background-color: #4685c6;
+        padding: 0.6rem 1.4rem;
+        margin-right: 1rem;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 600;
+
+    }
+
+    &__subtract {
+        position: absolute;
+        right: -0.5rem;
+        top: -1rem;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

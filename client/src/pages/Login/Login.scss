@@ -37,11 +37,13 @@
         border-radius: 20px;
         display: flex;
         justify-content: center;
+        cursor: pointer;
     }
 
     &__icon {
         width: 2rem;
-        justify-self: flex-start
+        justify-self: flex-start;
+        margin-right: 1rem;
     }
 
     &__inner-text {

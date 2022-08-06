@@ -1,0 +1,27 @@
+.social-item {
+    display: flex;
+    position: relative;
+
+    &__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem; //doesn't work
+    }
+
+    &__link {
+        display: block;
+
+    }
+
+    &__social {
+        position: absolute;
+        right: -2.2rem;
+        bottom: 0;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

@@ -24,16 +24,6 @@
 
 .resume {
     padding: 4rem 0;
-
-    &__header {
-        padding-bottom: 2rem
-    }
-
-    &__contacts {
-        background-color: rgb(241, 241, 241);
-        display: flex;
-        @include mixins.text;
-    }
 }
 
 .cv-subtitle {
