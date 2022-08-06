@@ -1,42 +1,119 @@
 import Location from "../../../assets/icon/resume/location.svg";
 import Email from "../../../assets/icon/resume/email.svg";
 import Phone from "../../../assets/icon/resume/phone.svg";
-import Linkedin from "../../../assets/icon/resume/linkedin.svg";
-import Stackoverflow from "../../../assets/icon/resume/stackoverflow.svg";
-import Github from "../../../assets/icon/resume/github.svg";
+import SocialItem from "../../SocialItem/SocialItem";
 import "./Contacts.scss";
+import { useEffect, useRef } from "react";
+import Add from "../../../assets/icon/resume/add.svg";
 
-function Contacts({ user }) {
+function Contacts({ user, onChange, cv }) {
+  const locationInput = useRef(null);
+  const emailInput = useRef(null);
+  const phoneInput = useRef(null);
+
+  const onFieldChange = () => {
+    onChange({
+      location: locationInput.current.innerText,
+      email: emailInput.current.innerText,
+      phone: phoneInput.current.innerText,
+      socials: cv.contacts.socials,
+    });
+  };
+
+  const onChangeSocial = (index, url) => {
+    const changedSocials = [...cv.contacts.socials];
+    changedSocials[index] = url;
+    onChange({
+      location: cv.contacts.location,
+      email: cv.contacts.email,
+      phone: cv.contacts.phone,
+      socials: changedSocials,
+    });
+  };
+
+  const addNewSocial = () => {
+    const changedSocials = [...cv.contacts.socials];
+    changedSocials.push("");
+    onChange({
+      location: cv.contacts.location,
+      email: cv.contacts.email,
+      phone: cv.contacts.phone,
+      socials: changedSocials,
+    });
+  };
+  const subtractSocial = (index) => {
+    console.log("ты вызываешься?");
+    const changedSocials = [...cv.contacts.socials];
+    changedSocials.splice(index, 1);
+
+    onChange({
+      location: cv.contacts.location,
+      email: cv.contacts.email,
+      phone: cv.contacts.phone,
+      socials: changedSocials,
+    });
+  };
   return (
-    <div className="resume__contacts contacts">
+    <div className="contacts">
       <div className="contacts__left">
-        <div className="contacts__icon-container">
+        <div className="contacts__contact">
           <img className="contacts__icon" src={Location} alt="" />
-          <p className="contacts__address">City, Country</p>
+          <p
+            className="contacts__address"
+            contentEditable
+            suppressContentEditableWarning
+            onInput={onFieldChange}
+            ref={locationInput}
+          >
+            City, Country
+          </p>
         </div>
-        <div className="contacts__icon-container">
+        <div className="contacts__contact">
           <img className="contacts__icon" src={Email} alt="" />
-          <p className="rcontacts__email">{user.emails[0].value}</p>
+          <p
+            className="contacts__email"
+            contentEditable
+            suppressContentEditableWarning
+            onInput={onFieldChange}
+            ref={emailInput}
+          >
+            Email
+          </p>
         </div>
-        <div className="contacts__icon-container">
+        <div className="contacts__contact">
           <img className="contacts__icon" src={Phone} alt="" />
-          <p className="contacts__phone">Phone Number</p>
+          <p
+            className="contacts__phone"
+            contentEditable
+            suppressContentEditableWarning
+            onInput={onFieldChange}
+            ref={phoneInput}
+          >
+            Phone Number
+          </p>
         </div>
       </div>
-      <div className="contacts__contacts--right">
-        <div className="contacts__icon-container">
-          <img className="contacts__icon" src={Linkedin} alt="" />
-          <a className="contacts__link  contacts__link--linkedin">Linkedin</a>
-        </div>
-        <div className="contacts__icon-container">
-          <img className="contacts__icon" src={Github} alt="" />
-          <a className="contacts__link contacts__link--github">Github</a>
-        </div>
-        <div className="contacts__icon-container">
-          <img className="contacts__icon" src={Stackoverflow} alt="" />
-          <a className="contacts__link contacts__link--stackoverflow">
-            Stackoverflow
-          </a>
+      <div className="contacts__socials">
+        {cv.contacts.socials.map((social, index) => {
+          return (
+            <SocialItem
+              key={index}
+              url={social}
+              onSubstract={() => {
+                subtractSocial(index);
+              }}
+              onChange={(url) => onChangeSocial(index, url)}
+            />
+          );
+        })}
+
+        <div className="contacts__add-social">
+          <img
+            className="contacts__add-social-img"
+            src={Add}
+            alt="add icon"
+            onClick={addNewSocial}
+          />
         </div>
       </div>
     </div>

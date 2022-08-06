@@ -1,10 +1,49 @@
+import { useEffect, useRef } from "react";
 import "./ResumeHeader.scss";
 
-function ResumeHeader({ user }) {
+function ResumeHeader({ onChange, cv }) {
+  const nameInput = useRef(null);
+  const titleInput = useRef(null);
+
+  const onFieldChange = () => {
+    onChange({
+      name: nameInput.current.innerText,
+      title: titleInput.current.innerText,
+    });
+  };
+
+  useEffect(() => {
+    if (cv.name !== nameInput.current.textContent) {
+      nameInput.current.textContent = cv.name;
+    }
+  }, [cv.name]);
+
+  useEffect(() => {
+    if (cv.title !== titleInput.current.textContent) {
+      titleInput.current.textContent = cv.title;
+    }
+  }, [cv.title]);
+
   return (
-    <div className="resume__top">
-      <h1 className="resume__top__name">{user.displayName}</h1>
-      <p className="resume__top__position">Job title</p>
+    <div className="resume-header">
+      <h1
+        className="resume-header__name"
+        contentEditable
+        suppressContentEditableWarning
+        onInput={onFieldChange}
+        ref={nameInput}
+      >
+        Your name
+      </h1>
+      <p
+        className="resume-header__position"
+        contentEditable
+        suppressContentEditableWarning
+        onInput={onFieldChange}
+        ref={titleInput}
+      >
+        Position
+      </p>
     </div>
   );
 }
