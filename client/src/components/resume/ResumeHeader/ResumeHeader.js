@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./ResumeHeader.scss";
 
-function ResumeHeader({ onChange, cv }) {
+function ResumeHeader({ onChange, header }) {
   const nameInput = useRef(null);
   const titleInput = useRef(null);
 
@@ -13,16 +13,16 @@ function ResumeHeader({ onChange, cv }) {
   };
 
   useEffect(() => {
-    if (cv.name !== nameInput.current.textContent) {
-      nameInput.current.textContent = cv.name;
+    if (header.name !== nameInput.current.textContent) {
+      nameInput.current.textContent = header.name;
     }
-  }, [cv.name]);
+  }, [header.name]);
 
   useEffect(() => {
-    if (cv.title !== titleInput.current.textContent) {
-      titleInput.current.textContent = cv.title;
+    if (header.title !== titleInput.current.textContent) {
+      titleInput.current.textContent = header.title;
     }
-  }, [cv.title]);
+  }, [header.title]);
 
   return (
     <div className="resume-header">

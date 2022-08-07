@@ -6,7 +6,7 @@ import "./Contacts.scss";
 import { useEffect, useRef } from "react";
 import Add from "../../../assets/icon/resume/add.svg";
 
-function Contacts({ user, onChange, cv }) {
+function Contacts({ onChange, contacts }) {
   const locationInput = useRef(null);
   const emailInput = useRef(null);
   const phoneInput = useRef(null);
@@ -16,39 +16,39 @@ function Contacts({ user, onChange, cv }) {
       location: locationInput.current.innerText,
       email: emailInput.current.innerText,
       phone: phoneInput.current.innerText,
-      socials: cv.contacts.socials,
+      socials: contacts.socials,
     });
   };
 
   const onChangeSocial = (index, url) => {
-    const changedSocials = [...cv.contacts.socials];
+    const changedSocials = [...contacts.socials];
     changedSocials[index] = url;
     onChange({
-      location: cv.contacts.location,
-      email: cv.contacts.email,
-      phone: cv.contacts.phone,
+      location: contacts.location,
+      email: contacts.email,
+      phone: contacts.phone,
       socials: changedSocials,
     });
   };
 
   const addNewSocial = () => {
-    const changedSocials = [...cv.contacts.socials];
+    const changedSocials = [...contacts.socials];
     changedSocials.push("");
     onChange({
-      location: cv.contacts.location,
-      email: cv.contacts.email,
-      phone: cv.contacts.phone,
+      location: contacts.location,
+      email: contacts.email,
+      phone: contacts.phone,
       socials: changedSocials,
     });
   };
   const subtractSocial = (index) => {
-    const changedSocials = [...cv.contacts.socials];
+    const changedSocials = [...contacts.socials];
     changedSocials.splice(index, 1);
 
     onChange({
-      location: cv.contacts.location,
-      email: cv.contacts.email,
-      phone: cv.contacts.phone,
+      location: contacts.location,
+      email: contacts.email,
+      phone: contacts.phone,
       socials: changedSocials,
     });
   };
@@ -93,7 +93,7 @@ function Contacts({ user, onChange, cv }) {
         </div>
       </div>
       <div className="contacts__socials">
-        {cv.contacts.socials.map((social, index) => {
+        {contacts.socials.map((social, index) => {
           return (
             <SocialItem
               key={index}

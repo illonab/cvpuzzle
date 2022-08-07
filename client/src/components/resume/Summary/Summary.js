@@ -1,8 +1,14 @@
 import "./Summary.scss";
 import { useEffect, useRef } from "react";
 
-function Summary({ user, onChange, cv }) {
+function Summary({ onChange, summary }) {
   const summaryInput = useRef(null);
+
+  useEffect(() => {
+    if (summary !== summaryInput.current.textContent) {
+      summaryInput.current.textContent = summary;
+    }
+  }, [summary]);
 
   const onFieldChange = () => {
     onChange({
@@ -18,9 +24,7 @@ function Summary({ user, onChange, cv }) {
         suppressContentEditableWarning
         onInput={onFieldChange}
         ref={summaryInput}
-      >
-        Include summary of your skills and experience in 3-5 sentences.
-      </div>
+      ></div>
     </div>
   );
 }

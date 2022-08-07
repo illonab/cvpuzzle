@@ -6,9 +6,7 @@ function Educations({ educations, onChange }) {
   const onChangeEducations = (index, education) => {
     const changedEducations = [...educations];
     changedEducations[index] = education;
-    onChange({
-      educations: changedEducations,
-    });
+    onChange(changedEducations);
   };
 
   const addNewEducation = () => {
@@ -19,17 +17,13 @@ function Educations({ educations, onChange }) {
       universityName: "University name",
       universirtDegree: "University degree",
     });
-    onChange({
-      educations: changedEducations,
-    });
+    onChange(changedEducations);
   };
 
   const subtractEducation = (index) => {
     const changedEducation = [...educations];
     changedEducation.splice(index, 1);
-    onChange({
-      educations: changedEducation,
-    });
+    onChange(changedEducation);
   };
   return (
     <div className="educations">

@@ -9,55 +9,75 @@ import CertificatesProjects from "../resume/CertificatesProjects/CertificatesPro
 import { useState } from "react";
 
 function CVeditor({ user }) {
-  const [cv, setCV] = useState({
-    name: "Your name",
-    title: "Position",
-    summary: "Summary",
-    contacts: {
-      location: "Location",
-      email: "email",
-      phone: "phone",
-      socials: [
-        "https://www.linkedin.com/in/ilona-beshchuk/",
-        "https://github.com/illonab",
-      ],
+  const [cv, setCV] = useState([
+    {
+      type: "ResumeHeader",
+      data: { name: "Your name", title: "Position" },
     },
-    skills: ["JavaScript", "React"],
-    educations: [
-      {
-        date: "Date",
+    {
+      type: "Contacts",
+      data: {
         location: "Location",
-        universityName: "University name",
-        universirtDegree: "University degree",
-      },
-      {
-        date: "Date",
-        location: "Location",
-        universityName: "University name",
-        universirtDegree: "University degree",
-      },
-    ],
-    certificatesProjects: [
-      {
-        certificatesName: "Certificate/project name",
-        certificatesLink: "Certificate/project link",
-        certificatesCompany: "Company name",
-        certificatesDate: "Date",
-      },
-    ],
-    experience: [
-      {
-        position: "Position",
-        companyName: "Company name",
-        date: "Date",
-        location: "Location",
-        responsibilities: [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
+        email: "email",
+        phone: "phone",
+        socials: [
+          "https://www.linkedin.com/in/ilona-beshchuk/",
+          "https://github.com/illonab",
         ],
       },
-    ],
-  });
+    },
+    {
+      type: "Summary",
+      data: "Include summary of your skills and experience in 3-5 sentences.",
+    },
+    {
+      type: "Skills",
+      data: ["JavaScript", "React"],
+    },
+    {
+      type: "Experience",
+      data: [
+        {
+          position: "Position",
+          companyName: "Company name",
+          date: "Date",
+          location: "Location",
+          responsibilities: [
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
+          ],
+        },
+      ],
+    },
+    {
+      type: "Educations",
+      data: [
+        {
+          date: "Date",
+          location: "Location",
+          universityName: "University name",
+          universirtDegree: "University degree",
+        },
+        {
+          date: "Date",
+          location: "Location",
+          universityName: "University name",
+          universirtDegree: "University degree",
+        },
+      ],
+    },
+    {
+      type: "CertificatesProjects",
+      data: [
+        {
+          certificatesName: "Certificate/project name",
+          certificatesLink: "Certificate/project link",
+          certificatesCompany: "Company name",
+          certificatesDate: "Date",
+        },
+      ],
+    },
+  ]);
 
   const onHeaderChange = (value) => {
     setCV({ ...cv, name: value.name, title: value.title });
@@ -80,20 +100,10 @@ function CVeditor({ user }) {
     });
   };
 
-  const onSkillsChange = (value) => {
-    setCV({ ...cv, skills: value.skills });
-  };
-
-  const onEducationsChange = (value) => {
-    setCV({ ...cv, educations: value.educations });
-  };
-
-  const onCertificatesProjectsChange = (certificatesProjects) => {
-    setCV({ ...cv, certificatesProjects });
-  };
-
-  const onExperiencesChange = (experience) => {
-    setCV({ ...cv, experience });
+  const onBlockChange = (data, index) => {
+    const updatedCV = [...cv];
+    updatedCV[index] = { ...updatedCV[index], data };
+    setCV(updatedCV);
   };
 
   if (!user) {
@@ -106,22 +116,92 @@ function CVeditor({ user }) {
         <div className="editor__template">
           <h1 className="eritor__title">My resume</h1>
           <div className="editor__document resume">
-            <ResumeHeader cv={cv} onChange={onHeaderChange} />
-            <Contacts user={user} cv={cv} onChange={onContactsChange} />
-            <Summary cv={cv} onChange={onSummaryChange} />
-            <Skills skills={cv.skills} onChange={onSkillsChange} />{" "}
-            <Experience
-              experience={cv.experience}
-              onChange={onExperiencesChange}
-            />
-            <Educations
-              educations={cv.educations}
-              onChange={onEducationsChange}
-            />
-            <CertificatesProjects
-              certificatesProjects={cv.certificatesProjects}
-              onChange={onCertificatesProjectsChange}
-            />
+            {cv.map((cvBlock, index) => {
+              if (cvBlock.type === "ResumeHeader") {
+                return (
+                  <ResumeHeader
+                    key={index}
+                    header={cvBlock.data}
+                    onChange={(data) => {
+                      onBlockChange(data, index);
+                    }}
+                  />
+                );
+              }
+              if (cvBlock.type === "Contacts") {
+                return (
+                  <Contacts
+                    key={index}
+                    user={user}
+                    contacts={cvBlock.data}
+                    onChange={(data) => {
+                      onBlockChange(data, index);
+                    }}
+                  />
+                );
+              }
+              if (cvBlock.type === "Summary") {
+                return (
+                  <Summary
+                    key={index}
+                    summary={cvBlock.data}
+                    onChange={(data) => {
+                      onBlockChange(data, index);
+                    }}
+                  />
+                );
+              }
+              if (cvBlock.type === "Skills") {
+                return (
+                  <Skills
+                    key={index}
+                    skills={cvBlock.data}
+                    onChange={(data) => {
+                      onBlockChange(data, index);
+                    }}
+                  />
+                );
+              }
+              if (cvBlock.type === "Experience") {
+                return (
+                  <Experience
+                    key={index}
+                    experience={cvBlock.data}
+                    onChange={(data) => {
+                      onBlockChange(data, index);
+                    }}
+                  />
+                );
+              }
+
+              if (cvBlock.type === "Educations") {
+                return (
+                  <Educations
+                    key={index}
+                    educations={cvBlock.data}
+                    onChange={(data) => {
+                      onBlockChange(data, index);
+                    }}
+                  />
+                );
+              }
+
+              if (cvBlock.type === "CertificatesProjects") {
+                return (
+                  <CertificatesProjects
+                    key={index}
+                    certificatesProjects={cvBlock.data}
+                    onChange={(data) => {
+                      onBlockChange(data, index);
+                    }}
+                  />
+                );
+              }
+
+              throw new Error(
+                "No component found for block type " + cvBlock.type
+              );
+            })}
           </div>
         </div>
       </div>

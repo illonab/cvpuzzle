@@ -8,24 +8,18 @@ function Skills({ skills, onChange }) {
   const onChangeSkills = (index, skill) => {
     const changedSkills = [...skills];
     changedSkills[index] = skill;
-    onChange({
-      skills: changedSkills,
-    });
+    onChange(changedSkills);
   };
 
   const addNewSkill = () => {
     const changedSkills = [...skills];
     changedSkills.push("");
-    onChange({
-      skills: changedSkills,
-    });
+    onChange(changedSkills);
   };
   const subtractSkills = (index) => {
     const changedSkills = [...skills];
     changedSkills.splice(index, 1);
-    onChange({
-      skills: changedSkills,
-    });
+    onChange(changedSkills);
   };
 
   return (
