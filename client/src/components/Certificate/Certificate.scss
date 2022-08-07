@@ -1,8 +1,5 @@
-@use "../../../styles/partials/mixins" as mixins;
-
-.certificates {
-    padding: 0 3rem;
-    margin: 2rem 0;
+.certificate {
+    position: relative;
 
     &__name {
         font-size: 1.4rem;
@@ -21,10 +18,17 @@
     }
 
     &__date {
-        @include mixins.resume-date;
+        font-size: 1.2rem;
+        line-height: 1.8rem
     }
 
-    &__add-img {
+    &__subtract {
+        position: absolute;
+        right: -0.5rem;
+        top: -1rem;
+    }
+
+    &__subtract-img {
         width: 1.5rem;
         height: 1.5rem;
         cursor: pointer;

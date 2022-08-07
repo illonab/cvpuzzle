@@ -4,7 +4,7 @@ import ResumeHeader from "../resume/ResumeHeader/ResumeHeader";
 import Summary from "../resume/Summary/Summary";
 import Skills from "../resume/Skills/Skills";
 import Experience from "../resume/Experience/Experience";
-import Education from "../resume/Education/Education";
+import Educations from "../resume/Educations/Educations";
 import CertificatesProjects from "../resume/CertificatesProjects/CertificatesProjects";
 import { useState } from "react";
 
@@ -23,6 +23,28 @@ function CVeditor({ user }) {
       ],
     },
     skills: ["JavaScript", "React"],
+    educations: [
+      {
+        date: "Date",
+        location: "Location",
+        universityName: "University name",
+        universirtDegree: "University degree",
+      },
+      {
+        date: "Date",
+        location: "Location",
+        universityName: "University name",
+        universirtDegree: "University degree",
+      },
+    ],
+    certificatesProjects: [
+      {
+        certificatesName: "Certificate/project name",
+        certificatesLink: "Certificate/project link",
+        certificatesCompany: "Company name",
+        certificatesDate: "Date",
+      },
+    ],
   });
 
   const onHeaderChange = (value) => {
@@ -50,9 +72,18 @@ function CVeditor({ user }) {
     setCV({ ...cv, skills: value.skills });
   };
 
+  const onEducationsChange = (value) => {
+    setCV({ ...cv, educations: value.educations });
+  };
+
+  const onCertificatesProjectsChange = (certificatesProjects) => {
+    setCV({ ...cv, certificatesProjects });
+  };
+
   if (!user) {
     return null;
   }
+
   return (
     <main className="editor">
       <div className="editor__wrapper">
@@ -64,8 +95,14 @@ function CVeditor({ user }) {
             <Summary cv={cv} onChange={onSummaryChange} />
             <Skills skills={cv.skills} onChange={onSkillsChange} />
             <Experience />
-            <Education />
-            <CertificatesProjects />
+            <Educations
+              educations={cv.educations}
+              onChange={onEducationsChange}
+            />
+            <CertificatesProjects
+              certificatesProjects={cv.certificatesProjects}
+              onChange={onCertificatesProjectsChange}
+            />
           </div>
         </div>
       </div>
