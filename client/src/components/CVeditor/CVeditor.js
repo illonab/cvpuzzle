@@ -45,6 +45,18 @@ function CVeditor({ user }) {
         certificatesDate: "Date",
       },
     ],
+    experience: [
+      {
+        position: "Position",
+        companyName: "Company name",
+        date: "Date",
+        location: "Location",
+        responsibilities: [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
+        ],
+      },
+    ],
   });
 
   const onHeaderChange = (value) => {
@@ -80,6 +92,10 @@ function CVeditor({ user }) {
     setCV({ ...cv, certificatesProjects });
   };
 
+  const onExperiencesChange = (experience) => {
+    setCV({ ...cv, experience });
+  };
+
   if (!user) {
     return null;
   }
@@ -93,8 +109,11 @@ function CVeditor({ user }) {
             <ResumeHeader cv={cv} onChange={onHeaderChange} />
             <Contacts user={user} cv={cv} onChange={onContactsChange} />
             <Summary cv={cv} onChange={onSummaryChange} />
-            <Skills skills={cv.skills} onChange={onSkillsChange} />
-            <Experience />
+            <Skills skills={cv.skills} onChange={onSkillsChange} />{" "}
+            <Experience
+              experience={cv.experience}
+              onChange={onExperiencesChange}
+            />
             <Educations
               educations={cv.educations}
               onChange={onEducationsChange}

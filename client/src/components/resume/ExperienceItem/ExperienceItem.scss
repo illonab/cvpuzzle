@@ -1,0 +1,39 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.experience-item {
+    position: relative;
+
+    &__position {
+        @include mixins.resume-title;
+    }
+
+    &__company {
+        @include mixins.resume-company-name
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    &__date {
+        @include mixins.resume-date;
+    }
+
+    &__location {
+        @include mixins.resume-location;
+    }
+
+    &__subtract {
+        position: absolute;
+        right: -0.5rem;
+        top: 0rem;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

@@ -1,5 +1,5 @@
 import "./CertificatesProjects.scss";
-import Certificate from "../../Certificate/Certificate";
+import Certificate from "../Certificate/Certificate";
 import Add from "../../../assets/icon/resume/add.svg";
 
 function CertificatesProjects({ certificatesProjects, onChange }) {
@@ -23,9 +23,7 @@ function CertificatesProjects({ certificatesProjects, onChange }) {
   const subtractCertificate = (index) => {
     const changedCertificate = [...certificatesProjects];
     changedCertificate.splice(index, 1);
-    onChange({
-      changedCertificate,
-    });
+    onChange(changedCertificate);
   };
 
   return (

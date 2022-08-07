@@ -42,7 +42,6 @@ function Contacts({ user, onChange, cv }) {
     });
   };
   const subtractSocial = (index) => {
-    console.log("ты вызываешься?");
     const changedSocials = [...cv.contacts.socials];
     changedSocials.splice(index, 1);
 
