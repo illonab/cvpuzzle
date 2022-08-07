@@ -1,5 +1,5 @@
 import "./Educations.scss";
-import EducationItem from "../../EducationItem/EducationItem";
+import EducationItem from "../EducationItem/EducationItem";
 import Add from "../../../assets/icon/resume/add.svg";
 
 function Educations({ educations, onChange }) {

@@ -1,6 +1,6 @@
 import "./Certificate.scss";
 import { useEffect, useRef, useState } from "react";
-import Subtract from "../../assets/icon/resume/subtract.svg";
+import Subtract from "../../../assets/icon/resume/subtract.svg";
 
 function Certificate({ certificate, onChange, onSubstract }) {
   const [isFocused, setIsFocused] = useState(false);

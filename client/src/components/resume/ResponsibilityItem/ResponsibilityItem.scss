@@ -1,0 +1,17 @@
+.responsibility-item {
+    list-style: disc;
+    list-style-position: inside;
+    position: relative;
+
+    &__subtract {
+        position: absolute;
+        right: -0.5rem;
+        top: -1rem;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

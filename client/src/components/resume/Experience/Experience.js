@@ -1,55 +1,59 @@
 import "./Experience.scss";
+import ExperienceItem from "../ExperienceItem/ExperienceItem";
+import Add from "../../../assets/icon/resume/add.svg";
 
-function Experience() {
+function Experience({ experience, onChange }) {
+  const onChangeExperience = (index, experienceItem) => {
+    const changedExperience = [...experience];
+    changedExperience[index] = experienceItem;
+    onChange(changedExperience);
+  };
+
+  const addNewExperience = () => {
+    const changedExperience = [...experience];
+    changedExperience.push({
+      position: "Position",
+      companyName: "Company name",
+      date: "Date",
+      responsibilities: [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
+      ],
+    });
+    onChange(changedExperience);
+  };
+
+  const subtractExperience = (index) => {
+    const changedExperience = [...experience];
+    changedExperience.splice(index, 1);
+    onChange(changedExperience);
+  };
+
   return (
     <div className="experience">
       <h2 className="experience__title cv-subtitle">Work experience</h2>
-      <article className="experience__history">
-        <h3 className="experience__position">Position</h3>
-        <h4 className="experience__company">Company name</h4>
-        <div className="experience__container">
-          <p className="experience__date">Date</p>
-          <p className="experience__location">Location</p>
-        </div>
-        <div className="respinsibilities">
-          <p className="respinsibilities__title">Respinsibilities:</p>
-          <p className="respinsibilities__item">
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            accusantium perspiciatis nesciunt minima facere,
-          </p>
-          <p className="respinsibilities__item">
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            accusantium perspiciatis nesciunt minima facere,
-          </p>
-          <p className="respinsibilities__item">
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            accusantium perspiciatis nesciunt minima facere,
-          </p>
-        </div>
-      </article>
-      <article className="experience__history">
-        <h3 className="experience__position">Position</h3>
-        <h4 className="experience__company">Company name</h4>
-        <div className="experience__container">
-          <p className="experience__date">Date</p>
-          <p className="experience__location">Location</p>
-        </div>
-        <div className="respinsibilities">
-          <p className="respinsibilities__title">Respinsibilities:</p>
-          <p className="respinsibilities__item">
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            accusantium perspiciatis nesciunt minima facere,
-          </p>
-          <p className="respinsibilities__item">
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            accusantium perspiciatis nesciunt minima facere,
-          </p>
-          <p className="respinsibilities__item">
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            accusantium perspiciatis nesciunt minima facere,
-          </p>
-        </div>
-      </article>
+      {experience.map((experienceItem, index) => {
+        return (
+          <ExperienceItem
+            key={index}
+            experienceItem={experienceItem}
+            onSubstract={() => {
+              subtractExperience(index);
+            }}
+            onChange={(experienceItem) => {
+              onChangeExperience(index, experienceItem);
+            }}
+          />
+        );
+      })}
+      <div className="experience__add-skill">
+        <img
+          className="experience__add-img"
+          src={Add}
+          alt="add icon"
+          onClick={addNewExperience}
+        />
+      </div>
     </div>
   );
 }
