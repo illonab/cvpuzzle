@@ -19,6 +19,34 @@
         height: 90rem;
         background-color: #fff;
         margin-top: 3rem;
+        position: relative
+    }
+
+    &__delete-page {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+
+        &:hover {
+            filter: invert(31%) sepia(80%) saturate(5496%) hue-rotate(232deg) brightness(98%) contrast(99%);
+        }
+    }
+
+    &__add-page {
+        @include mixins.text;
+        margin-top: 1rem;
+        padding: 9px;
+        text-align: center;
+        color: #2d405f;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            color: #3b4ef8;
+        }
     }
 }
 

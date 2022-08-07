@@ -7,6 +7,7 @@ import Experience from "../resume/Experience/Experience";
 import Educations from "../resume/Educations/Educations";
 import CertificatesProjects from "../resume/CertificatesProjects/CertificatesProjects";
 import { useState } from "react";
+import Delete from "../../assets/icon/delete-page.svg";
 
 function CVeditor({ user }) {
   const [cv, setCV] = useState([
@@ -79,12 +80,6 @@ function CVeditor({ user }) {
         ],
       },
     ],
-    [
-      {
-        type: "ResumeHeader",
-        data: { name: "Your name2", title: "Position2" },
-      },
-    ],
   ]);
 
   const onBlockChange = (data, pageIndex, index) => {
@@ -92,6 +87,15 @@ function CVeditor({ user }) {
     updatedCV[pageIndex] = [...updatedCV[pageIndex]];
     updatedCV[pageIndex][index] = { ...updatedCV[pageIndex][index], data };
     setCV(updatedCV);
+  };
+
+  const addNewPage = () => {
+    setCV([...cv, []]);
+  };
+  const deletePage = (pageIndex) => {
+    const changedCV = [...cv];
+    changedCV.splice(pageIndex);
+    setCV(changedCV);
   };
 
   if (!user) {
@@ -106,6 +110,14 @@ function CVeditor({ user }) {
           {cv.map((page, pageIndex) => {
             return (
               <div className="editor__document resume">
+                <img
+                  className="editor__delete-page"
+                  src={Delete}
+                  alt="delet page"
+                  onClick={() => {
+                    deletePage(pageIndex);
+                  }}
+                />
                 {page.map((cvBlock, index) => {
                   if (cvBlock.type === "ResumeHeader") {
                     return (
@@ -195,6 +207,9 @@ function CVeditor({ user }) {
               </div>
             );
           })}
+          <div className="editor__add-page" onClick={addNewPage}>
+            Add new page
+          </div>
         </div>
       </div>
     </main>
