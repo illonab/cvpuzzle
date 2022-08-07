@@ -1,15 +1,14 @@
-@use "../../../styles/partials/mixins" as mixins;
+@use "../../styles/partials/mixins" as mixins;
 
-.education {
-    padding: 0 3rem;
+.education-item {
+    display: flex;
+    align-items: center;
 
-    &__content {
-        display: flex;
-        align-items: center;
-    }
+    position: relative;
 
     &__dates {
-        flex: 1
+        flex: 1;
+
     }
 
     &__dates-date {
@@ -35,4 +34,17 @@
         font-size: 1.2rem;
         line-height: 1.8rem
     }
+
+    &__subtract {
+        position: absolute;
+        right: -0.5rem;
+        top: -1rem;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+
 }

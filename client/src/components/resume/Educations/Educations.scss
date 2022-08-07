@@ -1,0 +1,16 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.educations {
+    padding: 0 3rem;
+    position: relative;
+
+    &__title {}
+
+    &__add {}
+
+    &__add-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}
