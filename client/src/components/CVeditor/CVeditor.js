@@ -10,6 +10,25 @@ import { useEffect, useState } from "react";
 import Delete from "../../assets/icon/delete-page.svg";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { debounce } from "debounce";
+
+const saveCV = debounce(async (cvId, cv) => {
+  try {
+    const response = await axios.put(`http://localhost:8080/cvs/${cvId}`, cv, {
+      withCredentials: true,
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+        "Access-Control-Credentials": true,
+      },
+    });
+    if (response.status === 200) {
+      console.log("Success");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}, 500);
 
 function CVeditor({ user }) {
   const params = useParams();
@@ -40,30 +59,8 @@ function CVeditor({ user }) {
   }, []);
 
   useEffect(() => {
-    const saveCV = async () => {
-      try {
-        const response = await axios.put(
-          `http://localhost:8080/cvs/${params.id}`,
-          cv,
-          {
-            withCredentials: true,
-            headers: {
-              Accept: "application/json",
-              "Content-type": "application/json",
-              "Access-Control-Credentials": true,
-            },
-          }
-        );
-        if (response.status === 200) {
-          console.log("Success");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     if (cv !== null) {
-      saveCV();
+      saveCV(params.id, cv);
     }
   }, [cv, params.id]);
 
