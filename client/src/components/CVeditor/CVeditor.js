@@ -6,81 +6,66 @@ import Skills from "../resume/Skills/Skills";
 import Experience from "../resume/Experience/Experience";
 import Educations from "../resume/Educations/Educations";
 import CertificatesProjects from "../resume/CertificatesProjects/CertificatesProjects";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Delete from "../../assets/icon/delete-page.svg";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function CVeditor({ user }) {
-  const [cv, setCV] = useState([
-    [
-      {
-        type: "ResumeHeader",
-        data: { name: "Your name", title: "Position" },
-      },
-      {
-        type: "Contacts",
-        data: {
-          location: "Location",
-          email: "email",
-          phone: "phone",
-          socials: [
-            "https://www.linkedin.com/in/ilona-beshchuk/",
-            "https://github.com/illonab",
-          ],
-        },
-      },
-      {
-        type: "Summary",
-        data: "Include summary of your skills and experience in 3-5 sentences.",
-      },
-      {
-        type: "Skills",
-        data: ["JavaScript", "React"],
-      },
-      {
-        type: "Experience",
-        data: [
+  const params = useParams();
+  const [cv, setCV] = useState(null);
+
+  useEffect(() => {
+    const getCvData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/cvs/${params.id}`,
           {
-            position: "Position",
-            companyName: "Company name",
-            date: "Date",
-            location: "Location",
-            responsibilities: [
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
-            ],
-          },
-        ],
-      },
-      {
-        type: "Educations",
-        data: [
+            withCredentials: true,
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+              "Access-Control-Credentials": true,
+            },
+          }
+        );
+        if (response.status === 200) {
+          setCV(response.data);
+        } else {
+          throw new Error("No data!");
+        }
+      } catch (err) {}
+    };
+    getCvData();
+  }, []);
+
+  useEffect(() => {
+    const saveCV = async () => {
+      try {
+        const response = await axios.put(
+          `http://localhost:8080/cvs/${params.id}`,
+          cv,
           {
-            date: "Date",
-            location: "Location",
-            universityName: "University name",
-            universirtDegree: "University degree",
-          },
-          {
-            date: "Date",
-            location: "Location",
-            universityName: "University name",
-            universirtDegree: "University degree",
-          },
-        ],
-      },
-      {
-        type: "CertificatesProjects",
-        data: [
-          {
-            certificatesName: "Certificate/project name",
-            certificatesLink: "Certificate/project link",
-            certificatesCompany: "Company name",
-            certificatesDate: "Date",
-          },
-        ],
-      },
-    ],
-  ]);
+            withCredentials: true,
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+              "Access-Control-Credentials": true,
+            },
+          }
+        );
+        if (response.status === 200) {
+          console.log("Success");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (cv !== null) {
+      saveCV();
+    }
+  }, [cv, params.id]);
 
   const onBlockChange = (data, pageIndex, index) => {
     const updatedCV = [...cv];
@@ -101,7 +86,9 @@ function CVeditor({ user }) {
   if (!user) {
     return null;
   }
-
+  if (!cv) {
+    return null;
+  }
   return (
     <main className="editor">
       <div className="editor__wrapper">
@@ -109,7 +96,7 @@ function CVeditor({ user }) {
           <h1 className="eritor__title">My resume</h1>
           {cv.map((page, pageIndex) => {
             return (
-              <div className="editor__document resume">
+              <div key={pageIndex} className="editor__document resume">
                 <img
                   className="editor__delete-page"
                   src={Delete}

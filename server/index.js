@@ -7,6 +7,7 @@ const passport = require("passport");
 const authRoute = require("./routes/auth");
 const app = express();
 const PORT = process.env.PORT || 8080;
+const cvs = require("./routes/cvs");
 
 app.use(express.json());
 app.use(
@@ -28,6 +29,7 @@ app.use(
 );
 
 app.use("/auth", authRoute);
+app.use("/cvs", cvs);
 
 app.get("/", (_req, res) => {
   res.send("<h1>Cvpuzzle Server!</h1>");

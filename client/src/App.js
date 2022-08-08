@@ -54,7 +54,7 @@ function App() {
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/mycv" exact element={<MyCV />} />
         <Route path="/cvtemplates" exact element={<CVteamplates />} />
-        <Route path="/mycv/editor" exact element={<CVeditor user={user} />} />
+        <Route path="/mycv/editor/:id" element={<CVeditor user={user} />} />
       </Routes>
     </div>
   );

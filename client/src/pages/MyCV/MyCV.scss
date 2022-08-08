@@ -1,0 +1,32 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.my-cvs {
+    @include mixins.section-spacing;
+
+    &__wrapper {
+        @include mixins.wrapper;
+    }
+
+    &__title {
+        @include mixins.pageHeader;
+    }
+
+    &__cvs {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__cv {
+        background-color: rgb(241, 245, 249);
+        display: block;
+        padding: 3.2rem;
+        margin: 1rem;
+
+
+    }
+
+    &__img {
+        width: 27.8rem;
+        height: 35.9rem;
+    }
+}

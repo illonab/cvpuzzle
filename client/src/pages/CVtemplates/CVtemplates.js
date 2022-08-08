@@ -1,8 +1,22 @@
 import "./CVtemplates.scss";
 import Resume from "../../assets/images/resume.png";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function CVtemplates() {
+  let navigate = useNavigate();
+
+  const getId = async () => {
+    const response = await axios.post("http://localhost:8080/cvs", undefined, {
+      withCredentials: true,
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+        "Access-Control-Credentials": true,
+      },
+    });
+    navigate(`/mycv/editor/${response.data}`, { replace: true });
+  };
   return (
     <main className="templates">
       <div className="templates__wrapper">
@@ -14,9 +28,13 @@ function CVtemplates() {
           incidunt est, minus qui.
         </p>
         <section className="templates__templates">
-          <Link className="templates__template" to={"/mycv/editor"}>
+          <p
+            className="templates__template"
+            to={"/mycv/editor"}
+            onClick={getId}
+          >
             <img src={Resume} alt="" className="templates__preview-img" />
-          </Link>
+          </p>
           <a href="#" className="templates__template">
             <img src={Resume} alt="" className="templates__preview-img" />
           </a>
