@@ -2,7 +2,7 @@ import "./Skill.scss";
 import { useEffect, useRef, useState } from "react";
 import Subtract from "../../assets/icon/resume/subtract.svg";
 
-function Skill({ skill, onChange, onSubstract }) {
+function Skill({ skill, onChange, onSubstract, color }) {
   const [isFocused, setIsFocused] = useState(false);
 
   const skillsInput = useRef(null);
@@ -31,6 +31,7 @@ function Skill({ skill, onChange, onSubstract }) {
     <div className="skill">
       <div
         className="skill__text cv-text"
+        style={{ backgroundColor: color }}
         contentEditable
         suppressContentEditableWarning
         onInput={onFieldChange}

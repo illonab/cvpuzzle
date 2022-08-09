@@ -4,7 +4,7 @@ import Add from "../../../assets/icon/resume/add.svg";
 import Skill from "../../Skill/Skill";
 import Subtract from "../../../assets/icon/resume/subtract.svg";
 
-function Skills({ skills, onChange }) {
+function Skills({ skills, onChange, color }) {
   const onChangeSkills = (index, skill) => {
     const changedSkills = [...skills];
     changedSkills[index] = skill;
@@ -24,7 +24,9 @@ function Skills({ skills, onChange }) {
 
   return (
     <div className="skills">
-      <h2 className="skills__title cv-subtitle">Skills</h2>
+      <h2 className="skills__title cv-subtitle" style={{ color: color }}>
+        Skills
+      </h2>
       {skills.map((skill, index) => {
         return (
           <Skill
@@ -36,6 +38,7 @@ function Skills({ skills, onChange }) {
             onChange={(skill) => {
               onChangeSkills(index, skill);
             }}
+            color={color}
           />
         );
       })}

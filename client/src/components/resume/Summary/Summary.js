@@ -1,7 +1,7 @@
 import "./Summary.scss";
 import { useEffect, useRef } from "react";
 
-function Summary({ onChange, summary }) {
+function Summary({ onChange, summary, color }) {
   const summaryInput = useRef(null);
 
   useEffect(() => {
@@ -17,7 +17,9 @@ function Summary({ onChange, summary }) {
   };
   return (
     <div className="summary">
-      <h2 className="summary__title cv-subtitle">Profile</h2>
+      <h2 className="summary__title cv-subtitle" style={{ color: color }}>
+        Profile
+      </h2>
       <div
         className="summary__text cv-text"
         contentEditable

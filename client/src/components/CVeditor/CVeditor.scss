@@ -1,5 +1,13 @@
 @use "../../styles/partials/mixins" as mixins;
 
+// :root {
+//     --skill-color: green;
+// }
+
+// :root {
+//     --cv-theme: red
+// }
+
 .editor {
     background-color: rgb(241, 245, 249);
     @include mixins.section-spacing;
@@ -29,9 +37,12 @@
         position: absolute;
         right: 2rem;
         top: 2rem;
+        filter: invert(31%) sepia(80%) saturate(5496%) hue-rotate(232deg) brightness(98%) contrast(99%);
+        transition: all 100ms linear;
 
         &:hover {
-            filter: invert(31%) sepia(80%) saturate(5496%) hue-rotate(232deg) brightness(98%) contrast(99%);
+            width: 1.7rem;
+            height: 1.7rem
         }
     }
 

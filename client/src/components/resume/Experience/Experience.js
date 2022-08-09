@@ -2,7 +2,7 @@ import "./Experience.scss";
 import ExperienceItem from "../ExperienceItem/ExperienceItem";
 import Add from "../../../assets/icon/resume/add.svg";
 
-function Experience({ experience, onChange }) {
+function Experience({ experience, onChange, color }) {
   const onChangeExperience = (index, experienceItem) => {
     const changedExperience = [...experience];
     changedExperience[index] = experienceItem;
@@ -31,7 +31,9 @@ function Experience({ experience, onChange }) {
 
   return (
     <div className="experience">
-      <h2 className="experience__title cv-subtitle">Work experience</h2>
+      <h2 className="experience__title cv-subtitle" style={{ color: color }}>
+        Work experience
+      </h2>
       {experience.map((experienceItem, index) => {
         return (
           <ExperienceItem

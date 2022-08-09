@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import CVteamplates from "./pages/CVtemplates/CVtemplates";
 import CVeditor from "./components/CVeditor/CVeditor";
+import CvToPrint from "./components/CvToPrint/CvToPrint";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,18 +44,31 @@ function App() {
 
   return (
     <div>
-      <Header user={user} />
       <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/cvtoprint/:id" element={<CvToPrint />} />
         <Route
-          path="/login"
-          exact
-          element={user ? <Navigate to="/" /> : <Login />}
+          path="*"
+          element={
+            <>
+              <Header user={user} />
+              <Routes>
+                <Route path="/" exact element={<Home />} />
+                <Route
+                  path="/login"
+                  exact
+                  element={user ? <Navigate to="/" /> : <Login />}
+                />
+                <Route path="/home" element={<Navigate to="/" replace />} />
+                <Route path="/mycv" exact element={<MyCV />} />
+                <Route path="/cvtemplates" exact element={<CVteamplates />} />
+                <Route
+                  path="/mycv/editor/:id"
+                  element={<CVeditor user={user} />}
+                />
+              </Routes>
+            </>
+          }
         />
-        <Route path="/home" element={<Navigate to="/" replace />} />
-        <Route path="/mycv" exact element={<MyCV />} />
-        <Route path="/cvtemplates" exact element={<CVteamplates />} />
-        <Route path="/mycv/editor/:id" element={<CVeditor user={user} />} />
       </Routes>
     </div>
   );

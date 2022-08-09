@@ -5,8 +5,9 @@ import SocialItem from "../../SocialItem/SocialItem";
 import "./Contacts.scss";
 import { useEffect, useRef } from "react";
 import Add from "../../../assets/icon/resume/add.svg";
+import filter from "../../../filter.js";
 
-function Contacts({ onChange, contacts }) {
+function Contacts({ onChange, contacts, color }) {
   const locationInput = useRef(null);
   const emailInput = useRef(null);
   const phoneInput = useRef(null);
@@ -98,6 +99,7 @@ function Contacts({ onChange, contacts }) {
             <SocialItem
               key={index}
               url={social}
+              color={color}
               onSubstract={() => {
                 subtractSocial(index);
               }}

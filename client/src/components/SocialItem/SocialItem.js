@@ -6,6 +6,7 @@ import Empty from "../../assets/icon/resume/socials/empty.svg";
 import { useEffect, useRef, useState } from "react";
 import "./SocialItem.scss";
 import Subtract from "../../assets/icon/resume/subtract.svg";
+import filter from "../../filter.js";
 
 const socialIcons = {
   "https://www.linkedin.com": Linkedin,
@@ -40,7 +41,7 @@ const changeLinkToWord = (url) => {
   return url;
 };
 
-function SocialItem({ url, onChange, onSubstract }) {
+function SocialItem({ url, onChange, onSubstract, color }) {
   const [isFocused, setIsFocused] = useState(false);
 
   const urlInput = useRef(null);
@@ -76,6 +77,7 @@ function SocialItem({ url, onChange, onSubstract }) {
       <div className="social-item">
         <img
           className="social-item__icon"
+          style={{ filter: filter(color) }}
           src={getIconByUrl(url)}
           alt="socials-icon"
         />

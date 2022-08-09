@@ -11,6 +11,8 @@ import Delete from "../../assets/icon/delete-page.svg";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { debounce } from "debounce";
+import EditorPanel from "../EditorPanel/EditorPanel";
+import EditBlock from "../EditBlock/EditBlock";
 
 const saveCV = debounce(async (cvId, cv) => {
   try {
@@ -65,19 +67,22 @@ function CVeditor({ user }) {
   }, [cv, params.id]);
 
   const onBlockChange = (data, pageIndex, index) => {
-    const updatedCV = [...cv];
-    updatedCV[pageIndex] = [...updatedCV[pageIndex]];
-    updatedCV[pageIndex][index] = { ...updatedCV[pageIndex][index], data };
-    setCV(updatedCV);
+    const updatedData = [...cv.data];
+    updatedData[pageIndex] = [...updatedData[pageIndex]];
+    updatedData[pageIndex][index] = { ...updatedData[pageIndex][index], data };
+    setCV({ ...cv, data: updatedData });
   };
 
   const addNewPage = () => {
-    setCV([...cv, []]);
+    setCV({
+      ...cv,
+      data: [...cv.data, []],
+    });
   };
   const deletePage = (pageIndex) => {
-    const changedCV = [...cv];
-    changedCV.splice(pageIndex);
-    setCV(changedCV);
+    const changedData = [...cv.data];
+    changedData.splice(pageIndex);
+    setCV({ ...cv, data: changedData });
   };
 
   if (!user) {
@@ -89,106 +94,119 @@ function CVeditor({ user }) {
   return (
     <main className="editor">
       <div className="editor__wrapper">
+        <EditorPanel cvId={params.id} cv={cv} setCV={setCV} />
         <div className="editor__template">
-          <h1 className="eritor__title">My resume</h1>
-          {cv.map((page, pageIndex) => {
+          <h1 className="editor__title">My resume</h1>
+          {cv.data.map((page, pageIndex) => {
             return (
-              <div key={pageIndex} className="editor__document resume">
-                <img
-                  className="editor__delete-page"
-                  src={Delete}
-                  alt="delet page"
-                  onClick={() => {
-                    deletePage(pageIndex);
-                  }}
-                />
-                {page.map((cvBlock, index) => {
-                  if (cvBlock.type === "ResumeHeader") {
-                    return (
-                      <ResumeHeader
-                        key={index}
-                        header={cvBlock.data}
-                        onChange={(data) => {
-                          onBlockChange(data, pageIndex, index);
-                        }}
-                      />
-                    );
-                  }
-                  if (cvBlock.type === "Contacts") {
-                    return (
-                      <Contacts
-                        key={index}
-                        user={user}
-                        contacts={cvBlock.data}
-                        onChange={(data) => {
-                          onBlockChange(data, pageIndex, index);
-                        }}
-                      />
-                    );
-                  }
-                  if (cvBlock.type === "Summary") {
-                    return (
-                      <Summary
-                        key={index}
-                        summary={cvBlock.data}
-                        onChange={(data) => {
-                          onBlockChange(data, pageIndex, index);
-                        }}
-                      />
-                    );
-                  }
-                  if (cvBlock.type === "Skills") {
-                    return (
-                      <Skills
-                        key={index}
-                        skills={cvBlock.data}
-                        onChange={(data) => {
-                          onBlockChange(data, pageIndex, index);
-                        }}
-                      />
-                    );
-                  }
-                  if (cvBlock.type === "Experience") {
-                    return (
-                      <Experience
-                        key={index}
-                        experience={cvBlock.data}
-                        onChange={(data) => {
-                          onBlockChange(data, pageIndex, index);
-                        }}
-                      />
-                    );
-                  }
+              <>
+                <div
+                  key={pageIndex}
+                  className="editor__document resume"
+                  style={{ fontFamily: cv.mainFont }}
+                >
+                  <img
+                    className="editor__delete-page"
+                    src={Delete}
+                    alt="delet page"
+                    onClick={() => {
+                      deletePage(pageIndex);
+                    }}
+                  />
+                  {page.map((cvBlock, index) => {
+                    if (cvBlock.type === "ResumeHeader") {
+                      return (
+                        <ResumeHeader
+                          key={index}
+                          header={cvBlock.data}
+                          onChange={(data) => {
+                            onBlockChange(data, pageIndex, index);
+                          }}
+                        />
+                      );
+                    }
+                    if (cvBlock.type === "Contacts") {
+                      return (
+                        <Contacts
+                          key={index}
+                          user={user}
+                          contacts={cvBlock.data}
+                          color={cv.mainColor}
+                          onChange={(data) => {
+                            onBlockChange(data, pageIndex, index);
+                          }}
+                        />
+                      );
+                    }
+                    if (cvBlock.type === "Summary") {
+                      return (
+                        <Summary
+                          key={index}
+                          summary={cvBlock.data}
+                          color={cv.mainColor}
+                          onChange={(data) => {
+                            onBlockChange(data, pageIndex, index);
+                          }}
+                        />
+                      );
+                    }
+                    if (cvBlock.type === "Skills") {
+                      return (
+                        <Skills
+                          key={index}
+                          skills={cvBlock.data}
+                          color={cv.mainColor}
+                          onChange={(data) => {
+                            onBlockChange(data, pageIndex, index);
+                          }}
+                        />
+                      );
+                    }
+                    if (cvBlock.type === "Experience") {
+                      return (
+                        <Experience
+                          key={index}
+                          experience={cvBlock.data}
+                          color={cv.mainColor}
+                          onChange={(data) => {
+                            onBlockChange(data, pageIndex, index);
+                          }}
+                        />
+                      );
+                    }
 
-                  if (cvBlock.type === "Educations") {
-                    return (
-                      <Educations
-                        key={index}
-                        educations={cvBlock.data}
-                        onChange={(data) => {
-                          onBlockChange(data, pageIndex, index);
-                        }}
-                      />
-                    );
-                  }
+                    if (cvBlock.type === "Educations") {
+                      return (
+                        <Educations
+                          key={index}
+                          educations={cvBlock.data}
+                          color={cv.mainColor}
+                          onChange={(data) => {
+                            onBlockChange(data, pageIndex, index);
+                          }}
+                        />
+                      );
+                    }
 
-                  if (cvBlock.type === "CertificatesProjects") {
-                    return (
-                      <CertificatesProjects
-                        key={index}
-                        certificatesProjects={cvBlock.data}
-                        onChange={(data) => {
-                          onBlockChange(data, pageIndex, index);
-                        }}
-                      />
-                    );
-                  }
+                    if (cvBlock.type === "CertificatesProjects") {
+                      return (
+                        <CertificatesProjects
+                          key={index}
+                          certificatesProjects={cvBlock.data}
+                          onChange={(data) => {
+                            onBlockChange(data, pageIndex, index);
+                          }}
+                        />
+                      );
+                    }
 
-                  throw new Error(
-                    "No component found for block type " + cvBlock.type
-                  );
-                })}
-              </div>
+                    throw new Error(
+                      "No component found for block type " + cvBlock.type
+                    );
+                  })}
+                </div>
+                <EditBlock cv={cv} pageIndex={pageIndex} setCV={setCV} />
+              </>
             );
           })}
           <div className="editor__add-page" onClick={addNewPage}>

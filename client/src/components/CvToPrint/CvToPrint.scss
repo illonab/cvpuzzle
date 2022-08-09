@@ -1,0 +1,36 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.preview {
+    &__template {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__document {
+        width: 80rem;
+        height: 90rem;
+        background-color: #fff;
+        position: relative;
+
+
+        .contacts__add-social,
+        .skills__add-skill,
+        .responsibilities__add,
+        .experience__add-skill,
+        .educations__add,
+        .certificates__add {
+            display: none
+        }
+    }
+
+
+}
+
+
+.resume {
+    padding: 4rem 0;
+}
+
+.cv-subtitle {
+    @include mixins.resume-experience-title;
+}

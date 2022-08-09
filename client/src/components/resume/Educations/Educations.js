@@ -2,7 +2,7 @@ import "./Educations.scss";
 import EducationItem from "../EducationItem/EducationItem";
 import Add from "../../../assets/icon/resume/add.svg";
 
-function Educations({ educations, onChange }) {
+function Educations({ educations, onChange, color }) {
   const onChangeEducations = (index, education) => {
     const changedEducations = [...educations];
     changedEducations[index] = education;
@@ -27,7 +27,9 @@ function Educations({ educations, onChange }) {
   };
   return (
     <div className="educations">
-      <h2 className="educations__title cv-subtitle">Education</h2>
+      <h2 className="educations__title cv-subtitle" style={{ color: color }}>
+        Education
+      </h2>
       {educations.map((education, index) => {
         return (
           <EducationItem

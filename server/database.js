@@ -1,11 +1,15 @@
 const RocksDB = require("rocksdb");
 const LevelUp = require("levelup");
-const { json } = require("express");
 const db = new LevelUp(new RocksDB("./dbfolder"));
 
 const getCVsForUser = async (userId) => {
-  const cvs = await db.get(`user:${userId}:cvIds`);
-  return JSON.parse(cvs);
+  try {
+    const key = `user:${userId}:cvIds`;
+    const cvs = await db.get(key);
+    return JSON.parse(cvs);
+  } catch (error) {
+    return [];
+  }
 };
 const addCVToUser = async (userId, cvId) => {
   const key = `user:${userId}:cvIds`;
@@ -21,12 +25,20 @@ const addCVToUser = async (userId, cvId) => {
   await db.put(key, JSON.stringify(dataToArray));
 };
 const storeCv = async (cvId, cv) => {
-  await db.put(`cv:${cvId}`, JSON.stringify(cv));
-  console.log("CV stored");
+  try {
+    await db.put(`cv:${cvId}`, JSON.stringify(cv));
+    console.log("CV stored");
+  } catch (error) {
+    console.log(error);
+  }
 };
 const getCv = async (cvId) => {
-  const data = await db.get(`cv:${cvId}`);
-  return JSON.parse(data);
+  try {
+    const data = await db.get(`cv:${cvId}`);
+    return JSON.parse(data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 const removeCv = (cvId) => {};
 
