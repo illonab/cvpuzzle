@@ -4,8 +4,9 @@
     padding: 1rem 3rem;
     background-color: rgb(241, 241, 241);
     display: flex;
-    @include mixins.text;
+    // @include mixins.text;
     align-items: flex-start;
+    @include mixins.cv-text;
 
     &__left {
         flex: 1;
@@ -14,6 +15,7 @@
     &__contact {
         display: flex;
         align-items: baseline;
+        margin-bottom: 0.3rem;
     }
 
     &__icon {

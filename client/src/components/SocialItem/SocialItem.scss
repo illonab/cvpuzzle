@@ -2,12 +2,14 @@
 
 .social-item {
     display: flex;
+    align-items: baseline;
     position: relative;
+    margin-bottom: 0.3rem;
 
     &__icon {
         width: 1.5rem;
         height: 1.5rem;
-        margin-right: 1rem; //doesn't work
+        margin-right: 1rem;
     }
 
     &__link {

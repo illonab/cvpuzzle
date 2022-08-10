@@ -27,21 +27,23 @@ function Skills({ skills, onChange, color }) {
       <h2 className="skills__title cv-subtitle" style={{ color: color }}>
         Skills
       </h2>
-      {skills.map((skill, index) => {
-        return (
-          <Skill
-            key={index}
-            skill={skill}
-            onSubstract={() => {
-              subtractSkills(index);
-            }}
-            onChange={(skill) => {
-              onChangeSkills(index, skill);
-            }}
-            color={color}
-          />
-        );
-      })}
+      <div className="skills__content">
+        {skills.map((skill, index) => {
+          return (
+            <Skill
+              key={index}
+              skill={skill}
+              onSubstract={() => {
+                subtractSkills(index);
+              }}
+              onChange={(skill) => {
+                onChangeSkills(index, skill);
+              }}
+              color={color}
+            />
+          );
+        })}
+      </div>
 
       <div className="skills__add-skill">
         <img

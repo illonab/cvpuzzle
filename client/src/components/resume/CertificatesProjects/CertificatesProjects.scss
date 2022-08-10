@@ -4,15 +4,21 @@
     padding: 0 3rem;
     margin: 2rem 0;
 
+    &__title {
+        margin-bottom: 1.5rem;
+    }
+
     &__name {
         font-size: 1.4rem;
         font-weight: 600;
         line-height: 2.2rem;
+        margin-bottom: 0.5rem;
     }
 
     &__link {
         font-size: 1.2rem;
-        line-height: 1.8rem
+        line-height: 1.8rem;
+        margin-bottom: 0.5rem;
     }
 
     &__company {

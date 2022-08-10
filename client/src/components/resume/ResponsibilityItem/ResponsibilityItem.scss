@@ -5,6 +5,8 @@
     list-style-position: inside;
     position: relative;
 
+    @include mixins.cv-text-responsibilities;
+
     &__subtract {
         @include mixins.floating-control;
         right: -0.5rem;

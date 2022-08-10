@@ -2,14 +2,14 @@
 
 .experience-item {
     position: relative;
-    margin-top: 1rem;
+    margin: 1.5rem 0;
 
     &__position {
         @include mixins.resume-title;
     }
 
     &__company {
-        @include mixins.resume-company-name
+        @include mixins.resume-company-name;
     }
 
     &__container {

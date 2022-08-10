@@ -9,6 +9,7 @@ import TemplateImg from "../../assets/images/resume.png";
 import FeaturesImg from "../../assets/images/features.png";
 import FeaturesImg2 from "../../assets/images/features-2.png";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -23,9 +24,10 @@ function Home() {
               Build your brand-new resume just in a few minutes. Increase your
               interview chances and rise above the competition.
             </p>
-            <a href="#" className="banner__btn cta-btn">
+
+            <Link to={`/cvtemplates`} className="banner__btn cta-btn">
               Create my resume
-            </a>
+            </Link>
           </div>
           <img className="banner__image" src={heroImg} alt="" />
         </section>

@@ -21,7 +21,18 @@ function EditorPanel({ cvId, cv, setCV }) {
     console.log(color.hex);
   };
 
-  const colors = ["#4685c6", "#425061", "#479099", "#c9483a", "#4154f1"];
+  const colors = [
+    "#4685c6",
+    "#425061",
+    "#479099",
+    "#c9483a",
+    "#455aa3",
+    "#efb252",
+
+    "#1155cc",
+    "#00a8e1",
+    "#191919",
+  ];
   const onChangeFont = (e) => {
     setCV({ ...cv, mainFont: e.target.value });
   };

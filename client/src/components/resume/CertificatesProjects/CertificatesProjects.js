@@ -2,7 +2,7 @@ import "./CertificatesProjects.scss";
 import Certificate from "../Certificate/Certificate";
 import Add from "../../../assets/icon/resume/add.svg";
 
-function CertificatesProjects({ certificatesProjects, onChange }) {
+function CertificatesProjects({ certificatesProjects, onChange, color }) {
   const onChangeCertificatesProjects = (index, certificateProject) => {
     const changedCertificatesProjects = [...certificatesProjects];
     changedCertificatesProjects[index] = certificateProject;
@@ -28,7 +28,9 @@ function CertificatesProjects({ certificatesProjects, onChange }) {
 
   return (
     <div className="certificates">
-      <h2 className="certificates__title cv-subtitle">Certificates/Projects</h2>
+      <h2 className="certificates__title cv-subtitle" style={{ color: color }}>
+        Certificates/Projects
+      </h2>
       {certificatesProjects.map((certificate, index) => {
         return (
           <Certificate

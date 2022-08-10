@@ -16,10 +16,7 @@ function Experience({ experience, onChange, color }) {
       companyName: "Company name",
       date: "Date",
       location: "Location",
-      responsibilities: [
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
-      ],
+      responsibilities: ["Your responsibility"],
     });
     onChange(changedExperience);
   };

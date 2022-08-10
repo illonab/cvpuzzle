@@ -1,14 +1,17 @@
+@use "../../../styles/partials/mixins" as mixins;
+
 .summary {
     padding: 0 3rem;
     display: flex;
     margin: 2rem 0;
-    align-items: center;
+    align-items: baseline;
 
     &__title {
         width: 20%;
     }
 
     &__text {
-        width: 80%
+        width: 80%;
+        @include mixins.cv-text-responsibilities;
     }
 }

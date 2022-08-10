@@ -5,7 +5,9 @@
     margin: 2rem 0;
     position: relative;
 
-    &__title {}
+    &__title {
+        margin: 1.5rem 0;
+    }
 
     &__add {
         @include mixins.floating-control;

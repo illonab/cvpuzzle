@@ -9,6 +9,7 @@ import ShareLink from "../../assets/icon/my-cvs/link.svg";
 import Copy from "../../assets/icon/my-cvs/copy.svg";
 import Edit from "../../assets/icon/my-cvs/edit-my-cvs.svg";
 import Add from "../../assets/icon/my-cvs/add.svg";
+import ResumeExample from "../../assets/images/resume-example1.jpg";
 
 function MyCV() {
   const [myCVs, setmyCVs] = useState(null);
@@ -59,7 +60,7 @@ function MyCV() {
                     className="my-cvs__cv"
                     to={`/mycv/editor/${cvId}`}
                   >
-                    <img src={Resume} alt="" className="my-cvs__img" />
+                    <img src={ResumeExample} alt="" className="my-cvs__img" />
                   </Link>
                   <div className="my-cvs__settings">
                     <div className="my-cvs__settings__content">

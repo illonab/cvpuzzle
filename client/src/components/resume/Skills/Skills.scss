@@ -15,6 +15,11 @@
         width: 80%
     }
 
+    &__content {
+        display: flex;
+        flex-wrap: wrap
+    }
+
     &__add-skill {
         @include mixins.floating-control;
         position: static;

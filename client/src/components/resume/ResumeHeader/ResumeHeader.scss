@@ -5,9 +5,12 @@
 
     &__name {
         @include mixins.resume-name;
+        margin-bottom: 1rem;
+
     }
 
     &__position {
         @include mixins.resume-position;
+        margin-bottom: 2rem;
     }
 }

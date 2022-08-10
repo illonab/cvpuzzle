@@ -111,36 +111,37 @@
 }
 
 @mixin resume-experience-title {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
     line-height: 3rem;
 }
 
 @mixin resume-title {
-    font-size: 1.8rem;
-    line-height: 2.6rem;
+    font-size: 2.2rem;
+    line-height: 2.4rem;
 }
 
 @mixin resume-company-name {
-    font-size: 1.8rem;
-    line-height: 2.6rem;
+    font-size: 2rem;
+    line-height: 2.4rem;
     font-weight: 400;
 }
 
 @mixin resume-date {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
     color: #666666;
 
 }
 
 @mixin resume-location {
-    font-size: 1.2rem;
-    line-height: 1.2rem;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #666666;
 }
 
 @mixin cv-text {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
 }
 
 @mixin floating-control {
@@ -156,4 +157,9 @@
     @at-root .preview__document & {
         display: none;
     }
+}
+
+@mixin cv-text-responsibilities {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
 }

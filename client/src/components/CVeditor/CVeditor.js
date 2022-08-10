@@ -195,6 +195,7 @@ function CVeditor({ user }) {
                             <CertificatesProjects
                               key={index}
                               certificatesProjects={cvBlock.data}
+                              color={cv.mainColor}
                               onChange={(data) => {
                                 onBlockChange(data, pageIndex, index);
                               }}

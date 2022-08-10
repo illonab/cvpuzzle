@@ -2,6 +2,9 @@ import "./CVtemplates.scss";
 import Resume from "../../assets/images/resume.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ResumeExample from "../../assets/images/cvexample.jpg";
+import ResumeExample2 from "../../assets/images/cvexample2.jpg";
+import ResumeExample3 from "../../assets/images/cvexample3.jpg";
 
 function CVtemplates() {
   let navigate = useNavigate();
@@ -34,19 +37,31 @@ function CVtemplates() {
               onClick={getId}
             >
               <h3 className="templates__template-name">Basic</h3>
-              <img src={Resume} alt="" className="templates__preview-img" />
+              <img
+                src={ResumeExample}
+                alt=""
+                className="templates__preview-img"
+              />
             </p>
           </article>
           <article className="templates__card">
             <h3 className="templates__template-name">Traditional</h3>
             <p className="templates__template">
-              <img src={Resume} alt="" className="templates__preview-img" />
+              <img
+                src={ResumeExample2}
+                alt=""
+                className="templates__preview-img"
+              />
             </p>
           </article>
           <article className="templates__card">
             <h3 className="templates__template-name">Simple</h3>
             <p className="templates__template">
-              <img src={Resume} alt="" className="templates__preview-img" />
+              <img
+                src={ResumeExample3}
+                alt=""
+                className="templates__preview-img"
+              />
             </p>
           </article>
         </section>
