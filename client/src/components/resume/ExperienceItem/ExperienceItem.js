@@ -51,6 +51,7 @@ function ExperienceItem({ experienceItem, onChange, onSubstract }) {
       position: positionInput.current.innerText,
       companyName: companyNameInput.current.innerText,
       date: dateNameInput.current.innerText,
+      location: locationInput.current.innerText,
       responsibilities: experienceItem.responsibilities,
     });
   };
@@ -60,6 +61,7 @@ function ExperienceItem({ experienceItem, onChange, onSubstract }) {
       position: experienceItem.position,
       companyName: experienceItem.companyName,
       date: experienceItem.date,
+      location: experienceItem.location,
       responsibilities: responsibilities,
     });
   };
@@ -122,7 +124,7 @@ function ExperienceItem({ experienceItem, onChange, onSubstract }) {
           <img
             className="experience-item__subtract-img"
             src={Subtract}
-            alt="add icon"
+            alt="subtract icon"
             onClick={onSubstract}
           />
         </div>

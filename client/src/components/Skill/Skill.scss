@@ -1,3 +1,5 @@
+@use "../../styles/partials/mixins" as mixins;
+
 .skill {
     position: relative;
 
@@ -14,7 +16,7 @@
     }
 
     &__subtract {
-        position: absolute;
+        @include mixins.floating-control;
         right: -0.5rem;
         top: -1rem;
     }

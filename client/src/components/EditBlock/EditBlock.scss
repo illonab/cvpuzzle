@@ -1,0 +1,93 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.edit-block {
+
+    width: 100%;
+
+    &__blocks {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 3rem;
+        box-shadow: rgb(15 56 113 / 32%) 0px 0px 1px, rgb(15 56 113 / 8%) 0px 2px 4px -1px, rgb(15 56 113 / 12%) 0px 8px 20px -4px;
+        border-radius: 5px;
+        max-width: 80rem;
+        justify-content: space-between;
+        margin: 0 auto;
+        margin-top: 4rem;
+        gap: 2rem;
+        min-width: 21rem;
+
+        @include mixins.tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__add-block {
+        display: flex;
+
+        flex-direction: column;
+    }
+
+    &__add-block-btn {
+        border: transparent;
+        border-radius: 5px;
+        background-color: transparent;
+        font-family: inherit;
+        cursor: pointer;
+        @include mixins.text;
+        font-weight: 600;
+        color: #313B47;
+        transition: all 100ms linear;
+
+
+        &:hover {
+            color: #4154f1;
+        }
+    }
+
+    &__add-label {
+        @include mixins.text;
+        color: #666666;
+        font-weight: 600;
+
+
+
+    }
+
+    &__add-block-select {
+        border: transparent;
+        border-radius: 5px;
+        background-color: transparent;
+        font-family: inherit;
+        cursor: pointer;
+        @include mixins.text;
+        font-weight: 600;
+        width: 15rem;
+        text-overflow: ellipsis;
+        transition: all 100ms linear;
+
+        &:hover {
+            color: #4154f1;
+        }
+    }
+
+    &__select {}
+
+    &_add-block {}
+
+    &__remove-block {
+        border: transparent;
+        border-radius: 5px;
+        background-color: transparent;
+        font-family: inherit;
+        cursor: pointer;
+        @include mixins.text;
+        font-weight: 600;
+        color: #313B47;
+        transition: all 100ms linear;
+
+        &:hover {
+            color: #4154f1;
+        }
+    }
+}

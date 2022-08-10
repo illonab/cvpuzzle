@@ -2,6 +2,8 @@ import "./EditorPanel.scss";
 import Download from "../../assets/icon/download.svg";
 import { BlockPicker } from "react-color";
 import { useState } from "react";
+import Font from "../../assets/icon/editor-panel/font.svg";
+import Theme from "../../assets/icon/editor-panel/theme.svg";
 
 function EditorPanel({ cvId, cv, setCV }) {
   const [displayColorPicker, setdisplayColorPicker] = useState(false);
@@ -18,39 +20,47 @@ function EditorPanel({ cvId, cv, setCV }) {
     setCV({ ...cv, mainColor: color.hex });
     console.log(color.hex);
   };
-  const popover = {
-    position: "absolute",
-    zIndex: "2",
-  };
-  const cover = {
-    position: "fixed",
-    top: "0px",
-    right: "0px",
-    bottom: "0px",
-    left: "0px",
-  };
 
-  const colors = ["#4685c6", "#425061", "#479099"];
+  const colors = ["#4685c6", "#425061", "#479099", "#c9483a", "#4154f1"];
   const onChangeFont = (e) => {
     setCV({ ...cv, mainFont: e.target.value });
   };
   return (
     <section className="editor-panel">
-      <select name="font" id="" onChange={onChangeFont}>
-        <option value="Montserrat">Montserrat</option>
-        <option value="Roboto">Roboto</option>
-        <option value="Krub">Krub</option>
-        <option value="Ubuntu">Ubuntu</option>
-        <option value="Overpass">Overpass</option>
-        <option value="Merriweather">Overpass</option>
-      </select>
+      <div className="editor-panel__font">
+        <div className="editor-panel__font-container">
+          <img className="editor-panel__icon" src={Font} alt="Font icon" />
+          <p className="editor-panel__font-label">Font</p>
+        </div>
+        <select
+          className="editor-panel__select-font"
+          name="font"
+          id=""
+          onChange={onChangeFont}
+        >
+          <option value="Montserrat">Montserrat</option>
+          <option value="Roboto">Roboto</option>
+          <option value="Krub">Krub</option>
+          <option value="Ubuntu">Ubuntu</option>
+          <option value="Overpass">Overpass</option>
+          <option value="Merriweather">Merriweather</option>
+        </select>
+      </div>
+
       <div className="editor-panel__color">
-        <button className="editor-panel__btn" onClick={onChangeColorClick}>
-          Change color
+        <img className="editor-panel__color-icon" src={Theme} alt="Font icon" />
+        <button
+          className="editor-panel__color-btn"
+          onClick={onChangeColorClick}
+        >
+          Change Theme
         </button>
         {displayColorPicker && (
-          <div style={popover}>
-            <div style={cover} onClick={onCloseColorPicker} />
+          <div className="editor-panel__color-popover">
+            <div
+              className="editor-panel__color-cover"
+              onClick={onCloseColorPicker}
+            />
             <BlockPicker
               color={cv.mainColor}
               onChange={onColorChange}
@@ -64,8 +74,12 @@ function EditorPanel({ cvId, cv, setCV }) {
         download
         href={`http://localhost:8080/cvs/print/${cvId}`}
       >
-        <img className="editor-panel__img" src={Download} alt="Download icon" />
-        Download PDF
+        <img
+          className="editor-panel__download-img"
+          src={Download}
+          alt="Download icon"
+        />{" "}
+        <p className="editor-panel__download__label"> Download PDF</p>
       </a>
     </section>
   );

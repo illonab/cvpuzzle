@@ -28,7 +28,7 @@
     }
 
     &__add-social {
-        position: absolute;
+        @include mixins.floating-control;
         bottom: -22px;
     }
 

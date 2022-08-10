@@ -66,7 +66,7 @@ function SocialItem({ url, onChange, onSubstract, color }) {
   const onBlur = (e) => {
     if (
       e.relatedTarget === null ||
-      !e.relatedTarget.classList.contains("social-item__social--substract")
+      !e.relatedTarget.classList.contains("social-item__substract")
     ) {
       setIsFocused(false);
     }
@@ -92,7 +92,7 @@ function SocialItem({ url, onChange, onSubstract, color }) {
         ></span>
         {isFocused && (
           <div
-            className="social-item__social social-item__social--substract"
+            className="social-item__social social-item__substract"
             tabIndex={1}
             onClick={onSubstract}
           >

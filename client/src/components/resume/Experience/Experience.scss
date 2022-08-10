@@ -15,6 +15,12 @@
         height: 1.5rem;
         cursor: pointer;
     }
+
+    &__add {
+        @include mixins.floating-control;
+        margin-left: -2rem;
+        margin-top: 0.5rem;
+    }
 }
 
 .responsibilities {

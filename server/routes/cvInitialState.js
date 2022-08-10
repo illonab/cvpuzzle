@@ -1,6 +1,6 @@
 const cvIntialState = {
   title: "My Resume",
-  mainColor: "#000",
+  mainColor: "#4685c6",
   mainFont: "Krub, sans-serif",
   data: [
     [
@@ -36,10 +36,7 @@ const cvIntialState = {
             companyName: "Company name",
             date: "Date",
             location: "Location",
-            responsibilities: [
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
-            ],
+            responsibilities: ["Your responsibility", "Your responsibility"],
           },
         ],
       },
@@ -50,13 +47,13 @@ const cvIntialState = {
             date: "Date",
             location: "Location",
             universityName: "University name",
-            universirtDegree: "University degree",
+            universityDegree: "University degree",
           },
           {
             date: "Date",
             location: "Location",
             universityName: "University name",
-            universirtDegree: "University degree",
+            universityDegree: "University degree",
           },
         ],
       },

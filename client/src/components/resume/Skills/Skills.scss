@@ -1,3 +1,5 @@
+@use "../../../styles/partials/mixins" as mixins;
+
 .skills {
     padding: 0 3rem;
     display: flex;
@@ -13,7 +15,10 @@
         width: 80%
     }
 
-    &__add-skill {}
+    &__add-skill {
+        @include mixins.floating-control;
+        position: static;
+    }
 
     &__add-skill-img {
         width: 1.5rem;

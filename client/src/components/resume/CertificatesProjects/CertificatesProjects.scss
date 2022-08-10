@@ -24,6 +24,10 @@
         @include mixins.resume-date;
     }
 
+    &__add {
+        @include mixins.floating-control;
+    }
+
     &__add-img {
         width: 1.5rem;
         height: 1.5rem;

@@ -30,11 +30,11 @@ function EducationItem({ education, onChange, onSubstract }) {
 
   useEffect(() => {
     if (
-      education.universirtDegree !== universityDegreeInput.current.textContent
+      education.universityDegree !== universityDegreeInput.current.textContent
     ) {
-      universityDegreeInput.current.textContent = education.universirtDegree;
+      universityDegreeInput.current.textContent = education.universityDegree;
     }
-  }, [education.universirtDegree]);
+  }, [education.universityDegree]);
 
   const onFieldChange = () => {
     onChange({

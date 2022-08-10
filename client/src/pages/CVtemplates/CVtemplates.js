@@ -22,25 +22,33 @@ function CVtemplates() {
       <div className="templates__wrapper">
         <h1 className="templates__title">Resume templates</h1>
         <p className="templates__subheader">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          cupiditate porro quidem tempora possimus consequatur quia nesciunt
-          excepturi dolores labore a reiciendis neque iusto voluptates nostrum
-          incidunt est, minus qui.
+          Choose from a wide variety of unique and professionally designed
+          templates and create a CV that stands out from the rest.
         </p>
+        <div className="templates__separator"></div>
         <section className="templates__templates">
-          <p
-            className="templates__template"
-            to={"/mycv/editor"}
-            onClick={getId}
-          >
-            <img src={Resume} alt="" className="templates__preview-img" />
-          </p>
-          <a href="#" className="templates__template">
-            <img src={Resume} alt="" className="templates__preview-img" />
-          </a>
-          <a href="#" className="templates__template">
-            <img src={Resume} alt="" className="templates__preview-img" />
-          </a>
+          <article className="templates__card">
+            <p
+              className="templates__template"
+              to={"/mycv/editor"}
+              onClick={getId}
+            >
+              <h3 className="templates__template-name">Basic</h3>
+              <img src={Resume} alt="" className="templates__preview-img" />
+            </p>
+          </article>
+          <article className="templates__card">
+            <h3 className="templates__template-name">Traditional</h3>
+            <p className="templates__template">
+              <img src={Resume} alt="" className="templates__preview-img" />
+            </p>
+          </article>
+          <article className="templates__card">
+            <h3 className="templates__template-name">Simple</h3>
+            <p className="templates__template">
+              <img src={Resume} alt="" className="templates__preview-img" />
+            </p>
+          </article>
         </section>
       </div>
     </main>

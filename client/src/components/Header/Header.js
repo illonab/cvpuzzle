@@ -12,8 +12,8 @@ function Header({ user }) {
       <div className="header__wrapper">
         <div className="header__container">
           <Link className="header__link" to={"/"}>
-            <p className="header__logo">CvPuzzle</p>
             <img src={logoIcon} alt="Brainflix logo" className="header__icon" />
+            <p className="header__logo">CvPuzzle</p>
           </Link>
           {user ? (
             <nav className="header_navigation navigation">

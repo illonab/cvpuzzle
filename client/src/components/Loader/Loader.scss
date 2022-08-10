@@ -1,0 +1,26 @@
+.loader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    background-color: rgba(241, 241, 241, 0.5);
+    transition: opacity 100ms linear;
+    transition-delay: 600ms;
+
+    &--active {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    &__img {
+        width: 300px;
+        height: 300px;
+    }
+}

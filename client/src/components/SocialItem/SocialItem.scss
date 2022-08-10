@@ -1,3 +1,5 @@
+@use "../../styles/partials/mixins" as mixins;
+
 .social-item {
     display: flex;
     position: relative;
@@ -19,9 +21,12 @@
         bottom: 0;
     }
 
+    &__substract {
+        @include mixins.floating-control;
+    }
+
     &__subtract-img {
         width: 1.5rem;
         height: 1.5rem;
-        cursor: pointer;
     }
 }

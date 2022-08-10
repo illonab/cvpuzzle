@@ -2,17 +2,129 @@
 
 .editor-panel {
 
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    box-shadow: rgb(15 56 113 / 32%) 0px 0px 1px, rgb(15 56 113 / 8%) 0px 2px 4px -1px, rgb(15 56 113 / 12%) 0px 8px 20px -4px;
+    border-radius: 5px;
+    max-width: 80rem;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 4rem;
+    gap: 2rem;
+    min-width: 21rem;
 
-    &__img {
+    @include mixins.tablet {
+        flex-direction: row;
+    }
+
+    &__font {
+        display: flex;
+    }
+
+    &__font-container {
+        display: flex;
+        align-items: baseline;
+        margin-right: 0.5rem;
+    }
+
+    &__icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        //filter: invert(37%) sepia(88%) saturate(4767%) hue-rotate(228deg) brightness(95%) contrast(99%);
+        filter: invert(22%) sepia(18%) saturate(532%) hue-rotate(172deg) brightness(99%) contrast(98%);
+        margin-right: 0.5rem
+    }
+
+    &__font-label {
+        @include mixins.text;
+        // color: #4154f1;
+        color: #313B47;
+        font-weight: 600;
+    }
+
+    &__select-font {
+        border: transparent;
+        border-radius: 5px;
+        background-color: transparent;
+        font-family: inherit;
+        cursor: pointer;
+        @include mixins.text;
+        font-weight: 600;
+
+        &:hover {
+            color: #4154f1;
+        }
+    }
+
+    &__download-img {
         width: 2.2rem;
         height: 2.2rem;
         cursor: pointer;
-        margin-right: 0.5rem
+        margin-right: 0.5rem;
+        filter: invert(22%) sepia(18%) saturate(532%) hue-rotate(172deg) brightness(99%) contrast(98%);
+
     }
 
     &__download {
         @include mixins.text;
         display: flex;
+        font-weight: 600;
+        transition: all 100ms linear;
 
+
+
+    }
+
+    &__download__label {
+        color: #313B47;
+
+        &:hover {
+            color: #4154f1;
+        }
+    }
+
+    &__color {
+        display: flex;
+        position: relative;
+    }
+
+    &__color-icon {
+        width: 2.2rem;
+        height: 2.2rem;
+        cursor: pointer;
+        margin-right: 0.5rem;
+        //filter: invert(37%) sepia(88%) saturate(4767%) hue-rotate(228deg) brightness(95%) contrast(99%);
+        filter: invert(22%) sepia(18%) saturate(532%) hue-rotate(172deg) brightness(99%) contrast(98%);
+    }
+
+    &__color-btn {
+        background-color: transparent;
+        border: transparent;
+        @include mixins.text;
+        //color: #4154f1;
+        color: #313B47;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+
+        &:hover {
+            color: #4154f1;
+        }
+    }
+
+    &__color-popover {
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        margin-top: 10px;
+    }
+
+    &__color-cover {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
 }

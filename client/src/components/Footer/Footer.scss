@@ -1,0 +1,87 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.footer {
+    box-shadow: rgba(0, 0, 0, 0.15) -1.95px -1.95px 2.6px;
+    background-color: rgb(51, 65, 85);
+
+    &__wrapper {
+        @include mixins.wrapper;
+        @include mixins.section-spacing;
+
+        display: flex;
+        gap: 4rem;
+        flex-direction: column;
+
+        @include mixins.tablet {
+            flex-direction: row;
+            gap: 2rem;
+        }
+    }
+
+    &__logo-socials {
+        @include mixins.tablet {
+            flex: 0 0 auto;
+        }
+    }
+
+    &__logo {
+        display: flex;
+    }
+
+    &__logo-text {
+        font-size: 3rem;
+        //color: #012970;
+        //color: rgb(15, 23, 42);
+        //color: #2d405f;
+        color: #FFF;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding-left: 0.5rem;
+    }
+
+    &__icon {
+        height: 4rem;
+        width: 4rem;
+        filter: brightness(0) saturate(100%) invert(95%) sepia(0%) saturate(0%) hue-rotate(119deg) brightness(104%) contrast(105%);
+    }
+
+    &__socials {
+        margin-top: 2rem;
+    }
+
+    &__subtitle {
+        @include mixins.subheader;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+
+    &__link {
+        @include mixins.text;
+        color: rgb(241, 245, 249);
+        display: inline-block;
+        margin-top: 1rem;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        @include mixins.tablet {
+            justify-content: space-evenly;
+            flex: 1;
+            flex-direction: row;
+            gap: 0;
+        }
+    }
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+
+    &__social {
+        color: #FFF;
+        font-size: 2.5rem;
+    }
+}

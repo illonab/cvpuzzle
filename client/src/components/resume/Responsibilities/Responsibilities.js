@@ -10,7 +10,7 @@ function Responsibilities({ responsibilities, onChange }) {
   };
   const addNewResponsibilities = () => {
     const changedResponsibilities = [...responsibilities];
-    changedResponsibilities.push("");
+    changedResponsibilities.push("Your responsibility");
     onChange(changedResponsibilities);
   };
 

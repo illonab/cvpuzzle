@@ -2,6 +2,7 @@
 
 .experience-item {
     position: relative;
+    margin-top: 1rem;
 
     &__position {
         @include mixins.resume-title;
@@ -26,7 +27,7 @@
     }
 
     &__subtract {
-        position: absolute;
+        @include mixins.floating-control;
         right: -0.5rem;
         top: 0rem;
     }

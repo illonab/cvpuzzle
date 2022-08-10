@@ -8,22 +8,11 @@
 
     &__document {
         width: 80rem;
-        height: 90rem;
+        height: 113rem;
         background-color: #fff;
         position: relative;
-
-
-        .contacts__add-social,
-        .skills__add-skill,
-        .responsibilities__add,
-        .experience__add-skill,
-        .educations__add,
-        .certificates__add {
-            display: none
-        }
+        overflow: hidden;
     }
-
-
 }
 
 

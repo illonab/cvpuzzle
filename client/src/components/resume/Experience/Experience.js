@@ -15,6 +15,7 @@ function Experience({ experience, onChange, color }) {
       position: "Position",
       companyName: "Company name",
       date: "Date",
+      location: "Location",
       responsibilities: [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium perspiciatis nesciunt minima facere",
@@ -48,7 +49,7 @@ function Experience({ experience, onChange, color }) {
           />
         );
       })}
-      <div className="experience__add-skill">
+      <div className="experience__add">
         <img
           className="experience__add-img"
           src={Add}
