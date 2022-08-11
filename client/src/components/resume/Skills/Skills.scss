@@ -23,6 +23,8 @@
     &__add-skill {
         @include mixins.floating-control;
         position: static;
+        display: flex;
+        align-items: center;
     }
 
     &__add-skill-img {

@@ -31,7 +31,7 @@ function CVtemplates() {
         <div className="templates__separator"></div>
         <section className="templates__templates">
           <article className="templates__card">
-            <p
+            <div
               className="templates__template"
               to={"/mycv/editor"}
               onClick={getId}
@@ -42,7 +42,7 @@ function CVtemplates() {
                 alt=""
                 className="templates__preview-img"
               />
-            </p>
+            </div>
           </article>
           <article className="templates__card">
             <h3 className="templates__template-name">Traditional</h3>

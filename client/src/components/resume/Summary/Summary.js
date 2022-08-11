@@ -11,9 +11,7 @@ function Summary({ onChange, summary, color }) {
   }, [summary]);
 
   const onFieldChange = () => {
-    onChange({
-      summary: summaryInput.current.innerText,
-    });
+    onChange(summaryInput.current.innerText);
   };
   return (
     <div className="summary">

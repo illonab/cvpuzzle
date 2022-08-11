@@ -56,6 +56,11 @@
 
     &__btn {
         font-size: 1.6rem;
+        align-self: center;
+
+        @include mixins.tablet {
+            align-self: flex-start;
+        }
     }
 }
 

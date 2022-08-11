@@ -43,15 +43,14 @@ function Skills({ skills, onChange, color }) {
             />
           );
         })}
-      </div>
-
-      <div className="skills__add-skill">
-        <img
-          className="skills__add-skill-img"
-          src={Add}
-          alt="add icon"
-          onClick={addNewSkill}
-        />
+        <div className="skills__add-skill">
+          <img
+            className="skills__add-skill-img"
+            src={Add}
+            alt="add icon"
+            onClick={addNewSkill}
+          />
+        </div>
       </div>
     </div>
   );

@@ -54,12 +54,8 @@ function MyCV() {
           {myCVs !== null &&
             myCVs.map((cvId) => {
               return (
-                <article className="my-cvs__card">
-                  <Link
-                    key={cvId}
-                    className="my-cvs__cv"
-                    to={`/mycv/editor/${cvId}`}
-                  >
+                <article key={cvId} className="my-cvs__card">
+                  <Link className="my-cvs__cv" to={`/mycv/editor/${cvId}`}>
                     <img src={ResumeExample} alt="" className="my-cvs__img" />
                   </Link>
                   <div className="my-cvs__settings">
