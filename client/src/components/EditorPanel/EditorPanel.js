@@ -18,7 +18,6 @@ function EditorPanel({ cvId, cv, setCV }) {
 
   const onColorChange = (color) => {
     setCV({ ...cv, mainColor: color.hex });
-    console.log(color.hex);
   };
 
   const colors = [

@@ -17,7 +17,7 @@ import Loader from "../Loader/Loader";
 
 const saveCV = debounce(async (cvId, cv) => {
   try {
-    const response = await axios.put(`http://localhost:8080/cvs/${cvId}`, cv, {
+    await axios.put(`http://localhost:8080/cvs/${cvId}`, cv, {
       withCredentials: true,
       headers: {
         Accept: "application/json",
@@ -25,9 +25,6 @@ const saveCV = debounce(async (cvId, cv) => {
         "Access-Control-Credentials": true,
       },
     });
-    if (response.status === 200) {
-      console.log("Success");
-    }
   } catch (error) {
     console.log(error);
   }
