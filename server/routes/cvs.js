@@ -32,7 +32,7 @@ router.get("/print/:id", async (req, res) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  await page.goto(`http://localhost:3000/cvtoprint/${req.params.id}`, {
+  await page.goto(`${process.env.CLIENT_URL}/cvtoprint/${req.params.id}`, {
     waitUntil: "networkidle2",
   });
 
