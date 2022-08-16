@@ -34,8 +34,8 @@ function App() {
         } else {
           throw new Error("authentication has been failed!");
         }
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        console.log(error);
       }
     };
     getUser();
