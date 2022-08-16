@@ -13,6 +13,7 @@ router.get("/:id", async (req, res) => {
   const cv = await getCv(req.params.id);
   res.send(cv);
 });
+
 router.post("/", (req, res) => {
   const id = uuidv4();
   storeCv(id, cvIntialState);
@@ -30,23 +31,25 @@ router.put("/:id", async (req, res) => {
 router.get("/print/:id", async (req, res) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
+
   await page.goto(`http://localhost:3000/cvtoprint/${req.params.id}`, {
     waitUntil: "networkidle2",
   });
+
   const pdf = await page.pdf({
     format: "A4",
     displayHeaderFooter: false,
     margin: { top: 0, bottom: 0, left: 0, right: 0 },
     printBackground: true,
   });
+
   res.on("finish", function () {
-    console.log("Finish is working");
     browser.close();
   });
+
   res.contentType("application/pdf");
   res.setHeader("Content-disposition", "attachment; filename=cvpuzzle.pdf");
   res.send(pdf);
-  console.log("Send ");
 });
 
 module.exports = router;

@@ -11,6 +11,7 @@ const getCVsForUser = async (userId) => {
     return [];
   }
 };
+
 const addCVToUser = async (userId, cvId) => {
   const key = `user:${userId}:cvIds`;
   let data;
@@ -24,14 +25,15 @@ const addCVToUser = async (userId, cvId) => {
   dataToArray.push(cvId);
   await db.put(key, JSON.stringify(dataToArray));
 };
+
 const storeCv = async (cvId, cv) => {
   try {
     await db.put(`cv:${cvId}`, JSON.stringify(cv));
-    console.log("CV stored");
   } catch (error) {
     console.log(error);
   }
 };
+
 const getCv = async (cvId) => {
   try {
     const data = await db.get(`cv:${cvId}`);
@@ -40,6 +42,7 @@ const getCv = async (cvId) => {
     console.log(error);
   }
 };
+
 const removeCv = (cvId) => {};
 
 module.exports = { storeCv, addCVToUser, getCv, getCVsForUser };

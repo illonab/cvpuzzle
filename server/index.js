@@ -1,7 +1,8 @@
 require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
-const passportSetup = require("./passport");
+require("./passport");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
@@ -32,7 +33,7 @@ app.use("/auth", authRoute);
 app.use("/cvs", cvs);
 
 app.get("/", (_req, res) => {
-  res.send("<h1>Cvpuzzle Server!</h1>");
+  res.send("<h1>CvPuzzle Server!</h1>");
 });
 
 app.listen(PORT, () => {
