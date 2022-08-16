@@ -1,7 +1,4 @@
-import { useEffect } from "react";
 import "./Login.scss";
-import jwt_decode from "jwt-decode";
-import teamImg from "../../assets/images/hero-img.png";
 import Google from "../../assets/icon/google-icon.svg";
 import Github from "../../assets/icon/github-icon.svg";
 

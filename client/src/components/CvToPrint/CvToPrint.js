@@ -36,7 +36,7 @@ function CvToPrint() {
       } catch (err) {}
     };
     getCvData();
-  }, []);
+  }, [params.id]);
 
   const onBlockChange = (data, pageIndex, index) => {};
 

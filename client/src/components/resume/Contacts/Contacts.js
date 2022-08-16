@@ -3,9 +3,8 @@ import Email from "../../../assets/icon/resume/email.svg";
 import Phone from "../../../assets/icon/resume/phone.svg";
 import SocialItem from "../../SocialItem/SocialItem";
 import "./Contacts.scss";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Add from "../../../assets/icon/resume/add.svg";
-import filter from "../../../filter.js";
 
 function Contacts({ onChange, contacts, color }) {
   const locationInput = useRef(null);

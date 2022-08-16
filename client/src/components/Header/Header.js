@@ -33,13 +33,12 @@ function Header({ user }) {
                   <span className="navigation__link navigation__link--username">
                     Hi {user.displayName} !
                   </span>
-                  <a
+                  <span
                     className="navigation__link navigation__link--logout"
                     onClick={logout}
-                    href="#"
                   >
                     Logout
-                  </a>
+                  </span>
                 </div>
               </span>
             </nav>

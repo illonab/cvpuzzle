@@ -69,6 +69,15 @@
             }
         }
 
+        &--logout {
+            color: #bf3434;
+            cursor: pointer;
+
+            &:hover {
+                color: #d93b3b;
+            }
+        }
+
     }
 
     &__user-icon {

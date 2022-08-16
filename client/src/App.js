@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import { Route, Routes, Navigate } from "react-router-dom";
 import MyCV from "./pages/MyCV/MyCV";
-import { useInsertionEffect, useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import CVteamplates from "./pages/CVtemplates/CVtemplates";

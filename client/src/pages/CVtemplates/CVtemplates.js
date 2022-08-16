@@ -1,5 +1,4 @@
 import "./CVtemplates.scss";
-import Resume from "../../assets/images/resume.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import ResumeExample from "../../assets/images/cvexample.jpg";

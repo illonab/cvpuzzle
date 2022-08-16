@@ -71,8 +71,7 @@ function Certificate({ certificate, onChange, onSubstract }) {
       >
         Project/certificate name
       </p>
-      <a
-        href="#"
+      <span
         className="certificate__link"
         contentEditable
         suppressContentEditableWarning
@@ -82,7 +81,7 @@ function Certificate({ certificate, onChange, onSubstract }) {
         onBlur={onBlur}
       >
         Project/certificate link
-      </a>
+      </span>
       <p
         className="certificate__company"
         contentEditable

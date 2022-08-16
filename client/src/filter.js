@@ -1,7 +1,7 @@
 function rgbToHex(r, g, b) {
   function componentToHex(c) {
     var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
+    return hex.length === 1 ? "0" + hex : hex;
   }
 
   return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
@@ -167,6 +167,8 @@ class Color {
         case b:
           h = (r - g) / d + 4;
           break;
+        default:
+          h = 0;
       }
       h /= 6;
     }

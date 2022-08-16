@@ -1,5 +1,5 @@
 import "./EditBlock.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function EditBlock({ cv, setCV, pageIndex }) {
   const [select, setSelect] = useState("header");

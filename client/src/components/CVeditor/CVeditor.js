@@ -56,7 +56,7 @@ function CVeditor({ user }) {
       } catch (err) {}
     };
     getCvData();
-  }, []);
+  }, [params.id]);
 
   useEffect(() => {
     if (cv !== null) {

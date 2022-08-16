@@ -1,8 +1,6 @@
 import "./Skills.scss";
 import Add from "../../../assets/icon/resume/add.svg";
-
 import Skill from "../../Skill/Skill";
-import Subtract from "../../../assets/icon/resume/subtract.svg";
 
 function Skills({ skills, onChange, color }) {
   const onChangeSkills = (index, skill) => {
