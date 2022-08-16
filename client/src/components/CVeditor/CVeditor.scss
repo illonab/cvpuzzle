@@ -1,13 +1,5 @@
 @use "../../styles/partials/mixins" as mixins;
 
-// :root {
-//     --skill-color: green;
-// }
-
-// :root {
-//     --cv-theme: red
-// }
-
 .editor {
     background-color: rgb(241, 245, 249);
     @include mixins.section-spacing;

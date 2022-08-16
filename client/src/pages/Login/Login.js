@@ -12,24 +12,7 @@ function LogIn() {
   const github = () => {
     window.open("http://localhost:8080/auth/github", "_self");
   };
-  // function handleCallbackResponse(response) {
-  //   const useObject = jwt_decode(response.credential);
-  //   console.log(useObject);
-  // }
-  // useEffect(() => {
-  //   const loginButton = document.querySelector(".login__button");
-  //   /* global google */
-  //   google.accounts.id.initialize({
-  //     client_id:
-  //       "619268617742-kr9km0n6hfc1dr7a6dpviu30id1u4hfm.apps.googleusercontent.com",
-  //     callback: handleCallbackResponse,
-  //   });
-  //   google.accounts.id.renderButton(loginButton, {
-  //     theme: "outline",
-  //     size: "large",
-  //   });
-  //   google.accounts.id.prompt();
-  // }, []);
+
   return (
     <div className="login">
       <div className="login__wrapper">

@@ -24,9 +24,6 @@
 
     &__logo {
         font-size: 3rem;
-        //color: #012970;
-        //color: rgb(15, 23, 42);
-        //color: #2d405f;
         color: #313B47;
         font-weight: 700;
         letter-spacing: 1px;
@@ -47,9 +44,6 @@
     &__link {
         @include mixins.text;
         font-weight: 700;
-        //color: #013289;
-        //color: rgb(15, 23, 42);
-        //color: #2d405f;
         color: #313B47;
         padding: 1rem;
         transition: all 250ms linear;

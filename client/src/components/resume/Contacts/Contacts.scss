@@ -4,7 +4,6 @@
     padding: 1rem 3rem;
     background-color: rgb(241, 241, 241);
     display: flex;
-    // @include mixins.text;
     align-items: flex-start;
     @include mixins.cv-text;
 
@@ -41,25 +40,7 @@
 
     }
 
-    // &__subtract-social {
-    //     position: absolute;
-    //     right: 0;
-    //     bottom: 0;
-    // }
-
-    // &__subtract-social-img {
-    //     width: 1.5rem;
-    //     height: 1.5rem;
-    //     cursor: pointer;
-    // }
-
     &__link {
         display: block;
-
-        &--linkedin {}
-
-        &--github {}
-
-        &--stackoverflow {}
     }
 }

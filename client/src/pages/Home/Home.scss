@@ -20,9 +20,6 @@
     &__title {
         @include mixins.pageHeader;
         text-align: center;
-        //color: #012970;
-        //color: rgb(15, 23, 42);
-        //color: #2d405f;
         color: #313B47;
 
         margin-bottom: 1.6rem;
@@ -108,16 +105,6 @@
             margin: 3rem 2rem;
         }
     }
-
-    // &__icon-container {
-    //     background-color: #4154f1;
-    //     border-radius: 5px;
-    //     width: 3rem;
-    //     height: 3rem;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    // }
 
     &__icon {
         width: 3rem;

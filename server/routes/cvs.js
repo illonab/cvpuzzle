@@ -48,4 +48,5 @@ router.get("/print/:id", async (req, res) => {
   res.send(pdf);
   console.log("Send ");
 });
+
 module.exports = router;
