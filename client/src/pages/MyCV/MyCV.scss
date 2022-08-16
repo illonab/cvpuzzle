@@ -64,8 +64,6 @@
             display: block;
             width: 38rem;
         }
-
-
     }
 
     &__img {
@@ -97,8 +95,6 @@
         &:hover {
             color: #4154f1;
         }
-
-
     }
 
     &__settings-icon {
@@ -107,12 +103,4 @@
         filter: invert(37%) sepia(88%) saturate(4767%) hue-rotate(228deg) brightness(95%) contrast(99%);
         margin-right: 1rem;
     }
-
-    &__settings-download {}
-
-    &__settings-link {}
-
-    &__settings-copy {}
-
-    &__settings-delete {}
 }

@@ -68,8 +68,6 @@
     flex-direction: column;
     align-items: center;
 
-    &__main {}
-
     &__main-title {
         @include mixins.sectionHeader;
         margin-bottom: 2rem;
@@ -80,9 +78,6 @@
             display: flex;
         }
     }
-
-
-    &__content {}
 
     &__title {
         @include mixins.subheader;

@@ -39,7 +39,6 @@
         color: #313B47;
         transition: all 100ms linear;
 
-
         &:hover {
             color: #4154f1;
         }
@@ -49,9 +48,6 @@
         @include mixins.text;
         color: #666666;
         font-weight: 600;
-
-
-
     }
 
     &__add-block-select {
@@ -70,10 +66,6 @@
             color: #4154f1;
         }
     }
-
-    &__select {}
-
-    &_add-block {}
 
     &__remove-block {
         border: transparent;

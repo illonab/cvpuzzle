@@ -1,17 +1,14 @@
 @use "../../styles/partials/mixins" as mixins;
 
 .login {
-
-
     @include mixins.section-spacing;
+
     height: 100vh;
 
     &__wrapper {
         @include mixins.wrapper;
 
     }
-
-
 
     &__content {
         display: flex;
@@ -24,7 +21,6 @@
         color: #2d405f;
         margin-bottom: 2.4rem;
     }
-
 
     &__img {
         width: 100%;
