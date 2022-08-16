@@ -156,7 +156,7 @@ function Home() {
                     they should immediately pick up the phone and get you in the
                     building.
                     <br />
-                    With ResumeCat you can be sure that your resume isn't just
+                    With CvPuzzle you can be sure that your resume isn't just
                     being added to the pile; but that it stands out and makes
                     recruiters take notice.
                   </p>
@@ -179,7 +179,7 @@ function Home() {
                     jobs where hundreds of people are applying.
                   </p>
                   <p className="article__text">
-                    ResumeCat provides the support you need to create, format,
+                    CvPuzzle provides the support you need to create, format,
                     and prepare your resume like a professional, so you can make
                     every one of those seconds count. From white space to
                     columns to easy-to-read titles and sections our tools can
