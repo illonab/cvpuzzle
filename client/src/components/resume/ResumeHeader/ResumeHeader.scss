@@ -1,0 +1,16 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.resume-header {
+    padding: 0 3rem;
+
+    &__name {
+        @include mixins.resume-name;
+        margin-bottom: 1rem;
+
+    }
+
+    &__position {
+        @include mixins.resume-position;
+        margin-bottom: 2rem;
+    }
+}

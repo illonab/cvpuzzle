@@ -1,0 +1,21 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.responsibility-item {
+    list-style: disc;
+    list-style-position: inside;
+    position: relative;
+
+    @include mixins.cv-text-responsibilities;
+
+    &__subtract {
+        @include mixins.floating-control;
+        right: -0.5rem;
+        top: -1rem;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

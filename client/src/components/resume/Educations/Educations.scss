@@ -1,0 +1,21 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.educations {
+    padding: 0 3rem;
+    margin: 2rem 0;
+    position: relative;
+
+    &__title {
+        margin: 1.5rem 0;
+    }
+
+    &__add {
+        @include mixins.floating-control;
+    }
+
+    &__add-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

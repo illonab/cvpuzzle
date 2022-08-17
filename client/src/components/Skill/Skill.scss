@@ -1,0 +1,31 @@
+@use "../../styles/partials/mixins" as mixins;
+
+.skill {
+    position: relative;
+    margin-top: 1rem;
+
+    &__text {
+        min-width: 6rem;
+        display: block;
+        background-color: #4685c6;
+        padding: 0.6rem 1.4rem;
+        margin-right: 1rem;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+    }
+
+    &__subtract {
+        @include mixins.floating-control;
+        right: -0.5rem;
+        top: -1rem;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,42 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.certificate {
+    position: relative;
+
+    &__name {
+
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 2.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__link {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+
+    }
+
+    &__company {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        margin: 0.5rem 0;
+
+    }
+
+    &__date {
+        @include mixins.resume-date;
+    }
+
+    &__subtract {
+        @include mixins.floating-control;
+        right: -0.5rem;
+        top: -1rem;
+    }
+
+    &__subtract-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+}

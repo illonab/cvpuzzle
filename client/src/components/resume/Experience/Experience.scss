@@ -1,0 +1,33 @@
+@use "../../../styles/partials/mixins" as mixins;
+
+.experience {
+    padding: 0 3rem;
+    margin: 2rem 0;
+
+    &__history {
+        margin: 2rem 0;
+    }
+
+    &__add-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        cursor: pointer;
+    }
+
+    &__add {
+        @include mixins.floating-control;
+        margin-left: -2rem;
+        margin-top: 0.5rem;
+    }
+}
+
+.responsibilities {
+    &__title {
+        @include mixins.resume-date;
+        margin-bottom: 0.5rem;
+    }
+
+    &__item {
+        @include mixins.cv-text;
+    }
+}
