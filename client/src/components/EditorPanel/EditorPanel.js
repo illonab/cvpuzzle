@@ -82,7 +82,7 @@ function EditorPanel({ cvId, cv, setCV }) {
       <a
         className="editor-panel__download"
         download
-        href={`http://localhost:8080/cvs/print/${cvId}`}
+        href={`${process.env.REACT_APP_SERVER_URL}/cvs/print/${cvId}`}
       >
         <img
           className="editor-panel__download-img"

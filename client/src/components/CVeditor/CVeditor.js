@@ -17,7 +17,7 @@ import Loader from "../Loader/Loader";
 
 const saveCV = debounce(async (cvId, cv) => {
   try {
-    await axios.put(`http://localhost:8080/cvs/${cvId}`, cv, {
+    await axios.put(`${process.env.REACT_APP_SERVER_URL}/cvs/${cvId}`, cv, {
       withCredentials: true,
       headers: {
         Accept: "application/json",
@@ -38,7 +38,7 @@ function CVeditor({ user }) {
     const getCvData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/cvs/${params.id}`,
+          `${process.env.REACT_APP_SERVER_URL}/cvs/${params.id}`,
           {
             withCredentials: true,
             headers: {

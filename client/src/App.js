@@ -19,7 +19,7 @@ function App() {
     const getUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/auth/login/success",
+          `${process.env.REACT_APP_SERVER_URL}/auth/login/success`,
           {
             withCredentials: true,
             headers: {

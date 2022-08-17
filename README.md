@@ -25,6 +25,9 @@ The goal was to make it interactive, so that users see what they build rightaway
 3. Run `npm install` in the root folder
 4. Run `npm run server` in the root folder
 
+By default client is running on port `3000` and server is running on port `8080`.
+See `.env` to change these values.
+
 ## How to clean the database
 
 The sevice uses filesystem based database RocksDB. It is configured to use `/dbfolder` as the root folder for the database.

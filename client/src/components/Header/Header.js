@@ -5,7 +5,7 @@ import userIcon from "../../assets/icon/user-icon.svg";
 
 function Header({ user }) {
   const logout = () => {
-    window.open("http://localhost:8080/auth/logout", "_self");
+    window.open(`${process.env.REACT_APP_SERVER_URL}/auth/logout`, "_self");
   };
   return (
     <header className="header">

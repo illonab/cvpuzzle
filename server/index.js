@@ -7,7 +7,7 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.SERVER_PORT || 8080;
 const cvs = require("./routes/cvs");
 
 app.use(express.json());

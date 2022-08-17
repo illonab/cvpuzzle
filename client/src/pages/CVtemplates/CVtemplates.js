@@ -9,7 +9,7 @@ function CVtemplates() {
   let navigate = useNavigate();
 
   const getId = async () => {
-    const response = await axios.post("http://localhost:8080/cvs", undefined, {
+    const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/cvs`, undefined, {
       withCredentials: true,
       headers: {
         Accept: "application/json",

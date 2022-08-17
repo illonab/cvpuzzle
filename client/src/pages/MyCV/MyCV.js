@@ -16,7 +16,7 @@ function MyCV() {
   useEffect(() => {
     const getCVs = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/cvs`, {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/cvs`, {
           withCredentials: true,
           headers: {
             Accept: "application/json",

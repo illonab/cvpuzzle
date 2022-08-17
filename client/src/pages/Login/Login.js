@@ -4,10 +4,10 @@ import Github from "../../assets/icon/github-icon.svg";
 
 function LogIn() {
   const google = () => {
-    window.open("http://localhost:8080/auth/google", "_self");
+    window.open(`${process.env.REACT_APP_SERVER_URL}/auth/google`, "_self");
   };
   const github = () => {
-    window.open("http://localhost:8080/auth/github", "_self");
+    window.open(`${process.env.REACT_APP_SERVER_URL}/auth/github`, "_self");
   };
 
   return (
