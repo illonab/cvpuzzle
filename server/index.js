@@ -9,6 +9,14 @@ const authRoute = require("./routes/auth");
 const app = express();
 const PORT = process.env.SERVER_PORT || 8080;
 const cvs = require("./routes/cvs");
+const path = require('path');
+const fs = require('fs');
+const https = require('https');
+
+const sslOptions = {
+  key: fs.readFileSync(path.resolve(__dirname, process.env.SSL_KEY_RELATIVE_PATH)),
+  cert: fs.readFileSync(path.resolve(__dirname, process.env.SSL_CERTIFICATE_RELATIVE_PATH))
+};
 
 app.use(express.json());
 app.use(
@@ -36,6 +44,6 @@ app.get("/", (_req, res) => {
   res.send("<h1>CvPuzzle Server!</h1>");
 });
 
-app.listen(PORT, () => {
+https.createServer(sslOptions, app).listen(PORT, () => {
   console.log(`Server is running on port ${PORT} 🚀`);
 });
