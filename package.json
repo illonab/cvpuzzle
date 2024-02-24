@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "(cd client && npm install); (cd server && npm install)",
-    "client": "dotenv -c -- npm start --prefix ./client",
-    "build:client": "dotenv -c -- npm run build --prefix ./client",
+    "client": "dotenv -c $NODE_ENV -- npm start --prefix ./client",
+    "build:client": "dotenv -c $NODE_ENV -- npm run build --prefix ./client",
     "server": "nodemon ./server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
