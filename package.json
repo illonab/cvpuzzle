@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "(cd client && npm install); (cd server && npm install)",
     "client": "dotenv -c -- npm start --prefix ./client",
-    "build:client": "dotenv -c -- npm build --prefix ./client",
+    "build:client": "dotenv -c -- npm run build --prefix ./client",
     "server": "nodemon ./server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
