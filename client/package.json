@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@dotenvx/dotenvx": "^0.20.1",
     "axios": "^0.27.2",
     "bootstrap-icons": "^1.9.1",
     "debounce": "^1.2.1",
@@ -18,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "dotenvx run --env-file=../.env.production --env-file=../.env -- react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
