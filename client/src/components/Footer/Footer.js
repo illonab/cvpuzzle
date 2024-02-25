@@ -18,9 +18,9 @@ function Footer() {
             <h3 className="footer__subtitle">Legal</h3>
             <ul>
               <li>
-                <a href="/privacy" className="footer__link">
+                <Link to={"/privacy"} className="footer__link">
                   Privacy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
