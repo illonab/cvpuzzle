@@ -11,6 +11,7 @@ import axios from "axios";
 import CVteamplates from "./pages/CVtemplates/CVtemplates";
 import CVeditor from "./components/CVeditor/CVeditor";
 import CvToPrint from "./components/CvToPrint/CvToPrint";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -58,6 +59,7 @@ function App() {
                   element={user ? <Navigate to="/" /> : <Login />}
                 />
                 <Route path="/home" element={<Navigate to="/" replace />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
                 <Route path="/mycv" exact element={<MyCV />} />
                 <Route path="/cvtemplates" exact element={<CVteamplates />} />
                 <Route
