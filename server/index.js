@@ -14,8 +14,8 @@ const fs = require('fs');
 const https = require('https');
 
 const sslOptions = {
-  key: fs.readFileSync(path.resolve(__dirname, process.env.SSL_KEY_RELATIVE_PATH)),
-  cert: fs.readFileSync(path.resolve(__dirname, process.env.SSL_CERTIFICATE_RELATIVE_PATH))
+  key: fs.readFileSync(path.resolve(process.env.SSL_KEY_RELATIVE_PATH)),
+  cert: fs.readFileSync(path.resolve(process.env.SSL_CERTIFICATE_RELATIVE_PATH))
 };
 
 app.use(express.json());
